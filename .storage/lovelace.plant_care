@@ -166,10 +166,6 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "d96740717cacf4318884480175a807f1"
-                },
-                {
-                  "type": "custom:simple-plant-card",
                   "device": "ae12b70ee306905a49d50be00094772e"
                 },
                 {
@@ -223,6 +219,10 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
+                  "device": "786a4ea69be666af6614e5cc09b30d7f"
+                },
+                {
+                  "type": "custom:simple-plant-card",
                   "device": "16af72ce9e667acf455c4665b195103a"
                 },
                 {
@@ -252,6 +252,10 @@
                 {
                   "type": "custom:simple-plant-card",
                   "device": "8f09e3a68a9f15d125bf6581e3a780ec"
+                },
+                {
+                  "type": "custom:simple-plant-card",
+                  "device": "d96740717cacf4318884480175a807f1"
                 },
                 {
                   "type": "custom:simple-plant-card",
