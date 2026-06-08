@@ -2836,7 +2836,9 @@
         data:
           value: '21'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          device_id:
+          - cb6c0858d44eec4887a197d05c0e42c5
+          - 9c70c86ec414a57a3d76b25d63a736ec
       - alias: Set Persian Shield Plant
         action: number.set_value
         metadata: {}
@@ -3059,7 +3061,9 @@
         data:
           value: '18'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -3289,7 +3293,9 @@
         data:
           value: '16'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -3520,7 +3526,9 @@
         data:
           value: '10'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Persian Shield Plant
         action: number.set_value
         metadata: {}
@@ -3750,7 +3758,9 @@
         data:
           value: '13'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Persian Shield Plant
         action: number.set_value
         metadata: {}
@@ -3973,7 +3983,9 @@
         data:
           value: '11'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4203,7 +4215,9 @@
         data:
           value: '10'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4433,7 +4447,9 @@
         data:
           value: '11'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4663,7 +4679,9 @@
         data:
           value: '15'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4893,7 +4911,9 @@
         data:
           value: '18'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -5123,7 +5143,9 @@
         data:
           value: '21'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -5353,7 +5375,9 @@
         data:
           value: '23'
         target:
-          entity_id: number.simple_plant_days_between_waterings_marble_peperomia
+          entity_id:
+          - number.simple_plant_days_between_waterings_marble_peperomia_1
+          - number.simple_plant_days_between_waterings_marble_peperomia_2
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
