@@ -231,6 +231,25 @@
         "mode": "box",
         "unit_of_measurement": "grams",
         "step": 1.0
+      },
+      {
+        "id": "inland_black_asa",
+        "min": 0.0,
+        "max": 1000.0,
+        "name": "Inland Black ASA",
+        "icon": "mdi:movie-roll",
+        "step": 1.0,
+        "mode": "box"
+      },
+      {
+        "id": "esun_solid_grey_petg",
+        "min": 0.0,
+        "max": 1000.0,
+        "name": "eSun Solid Grey PETG",
+        "icon": "mdi:movie-roll",
+        "mode": "box",
+        "unit_of_measurement": "g",
+        "step": 1.0
       }
     ]
   }
