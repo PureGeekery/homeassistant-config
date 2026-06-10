@@ -580,7 +580,7 @@
                 },
                 {
                   "type": "tile",
-                  "entity": "light.living_room_lamps",
+                  "entity": "light.living_room_lamp",
                   "name": "Lamp"
                 },
                 {
@@ -965,10 +965,6 @@
                   "type": "tile",
                   "entity": "binary_sensor.utility_room_side_door_opening",
                   "name": "Side Door Opening"
-                },
-                {
-                  "type": "tile",
-                  "entity": "switch.dehumidifier"
                 }
               ]
             },
@@ -3178,7 +3174,19 @@
                 {
                   "type": "tile",
                   "entity": "switch.family_room_media_center_top",
-                  "name": "Media Center",
+                  "name": "Media Center - Top",
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "toggle"
+                    }
+                  ],
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.family_room_media_center_bottom",
+                  "name": "Media Center - Bottom",
                   "vertical": false,
                   "features": [
                     {
@@ -5150,11 +5158,11 @@
                 {
                   "features": [
                     {
-                      "type": "toggle"
+                      "type": "light-brightness"
                     }
                   ],
                   "type": "tile",
-                  "entity": "light.living_room_lamps",
+                  "entity": "light.living_room_lamp",
                   "name": "Lamp",
                   "features_position": "bottom",
                   "vertical": false,

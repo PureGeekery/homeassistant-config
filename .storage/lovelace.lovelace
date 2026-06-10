@@ -418,9 +418,25 @@
                 },
                 {
                   "type": "tile",
+                  "entity": "switch.family_room_media_center_top",
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "toggle"
+                    }
+                  ],
+                  "features_position": "inline"
+                },
+                {
+                  "type": "tile",
                   "entity": "switch.den_media_center",
-                  "features_position": "bottom",
-                  "vertical": false
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "toggle"
+                    }
+                  ],
+                  "features_position": "inline"
                 },
                 {
                   "type": "tile",
@@ -1124,7 +1140,7 @@
                   "type": "entities",
                   "entities": [
                     {
-                      "entity": "light.living_room_lamps"
+                      "entity": "light.living_room_lamp"
                     },
                     {
                       "entity": "light.living_room_wall_dimmer"
@@ -2338,27 +2354,6 @@
               "type": "grid",
               "cards": [
                 {
-                  "type": "custom:auto-entities",
-                  "card": {
-                    "type": "entities",
-                    "title": "Plant Care"
-                  },
-                  "filter": {
-                    "include": [
-                      {
-                        "options": {},
-                        "entity_id": "binary_sensor.simple_plant_todo_*",
-                        "state": "on"
-                      }
-                    ],
-                    "exclude": []
-                  },
-                  "sort": {
-                    "method": "last_changed"
-                  },
-                  "show_empty": false
-                },
-                {
                   "type": "tile",
                   "entity": "vacuum.roborock_main_floor",
                   "features": [
@@ -2432,6 +2427,27 @@
             {
               "type": "grid",
               "cards": [
+                {
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities",
+                    "title": "Plant Care"
+                  },
+                  "filter": {
+                    "include": [
+                      {
+                        "options": {},
+                        "entity_id": "binary_sensor.simple_plant_todo_*",
+                        "state": "on"
+                      }
+                    ],
+                    "exclude": []
+                  },
+                  "sort": {
+                    "method": "last_changed"
+                  },
+                  "show_empty": false
+                },
                 {
                   "type": "tile",
                   "entity": "sensor.washer_job_state"
@@ -3068,8 +3084,50 @@
                   "features_position": "bottom",
                   "grid_options": {
                     "columns": 12,
-                    "rows": 2
+                    "rows": "auto"
                   }
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.camper_green_giant",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "red"
+                    },
+                    {
+                      "from": 40,
+                      "color": "green"
+                    },
+                    {
+                      "from": 60,
+                      "color": "red"
+                    }
+                  ],
+                  "max": 100,
+                  "min": 0,
+                  "needle": true
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.driveway_arborvitae",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "red"
+                    },
+                    {
+                      "from": 40,
+                      "color": "green"
+                    },
+                    {
+                      "from": 60,
+                      "color": "red"
+                    }
+                  ],
+                  "max": 100,
+                  "min": 0,
+                  "needle": true
                 }
               ],
               "column_span": 2
@@ -4519,6 +4577,31 @@
                 },
                 {
                   "type": "gauge",
+                  "entity": "input_number.esun_solid_grey_petg",
+                  "max": 1000,
+                  "min": 0,
+                  "needle": true,
+                  "unit": "g",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "#71717F"
+                    }
+                  ],
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  },
+                  "visibility": [
+                    {
+                      "condition": "numeric_state",
+                      "above": 0,
+                      "entity": "input_number.esun_solid_grey_petg"
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
                   "entity": "input_number.inland_clear_petg",
                   "max": 1000,
                   "min": 0,
@@ -4650,6 +4733,31 @@
                     {
                       "condition": "numeric_state",
                       "entity": "input_number.bambu_black_abs",
+                      "above": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "input_number.inland_black_asa",
+                  "max": 1000,
+                  "min": 0,
+                  "needle": true,
+                  "unit": "g",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "#3D3D3C"
+                    }
+                  ],
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  },
+                  "visibility": [
+                    {
+                      "condition": "numeric_state",
+                      "entity": "input_number.polymaker_teal_asa",
                       "above": 0
                     }
                   ]
@@ -4903,6 +5011,18 @@
               "type": "grid",
               "cards": [
                 {
+                  "type": "heading",
+                  "heading": "Settings",
+                  "heading_style": "title",
+                  "icon": ""
+                }
+              ],
+              "column_span": 3
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
                   "type": "tile",
                   "entity": "input_select.home_mode",
                   "features": [
@@ -4963,13 +5083,17 @@
               "type": "grid",
               "cards": [
                 {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "sensor.samsung_printer_toner_level"
-                    }
-                  ]
-                },
+                  "type": "heading",
+                  "heading": "Maintenance",
+                  "heading_style": "title",
+                  "icon": "mdi:hammer-wrench"
+                }
+              ],
+              "column_span": 4
+            },
+            {
+              "type": "grid",
+              "cards": [
                 {
                   "title": "Battery Status",
                   "type": "custom:battery-state-card",
@@ -5039,9 +5163,76 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities",
+                    "title": "Main Floor Roborock Maintenance"
+                  },
+                  "filter": {
+                    "include": [
+                      {
+                        "options": {},
+                        "entity_id": "binary_sensor.roborock_main_floor*replace*"
+                      },
+                      {
+                        "options": {},
+                        "entity_id": "binary_sensor.roborock_main_floor*clean_*"
+                      }
+                    ],
+                    "exclude": []
+                  },
+                  "sort": {
+                    "method": "last_changed"
+                  },
+                  "show_empty": false
+                },
+                {
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities",
+                    "title": "Downstairs Roborock Maintenance"
+                  },
+                  "filter": {
+                    "include": [
+                      {
+                        "options": {},
+                        "entity_id": "binary_sensor.roborock_downstairs*replace*"
+                      },
+                      {
+                        "options": {},
+                        "entity_id": "binary_sensor.roborock_downstairs*clean_*"
+                      }
+                    ],
+                    "exclude": []
+                  },
+                  "sort": {
+                    "method": "last_changed"
+                  },
+                  "show_empty": false
+                }
+              ],
+              "column_span": 1
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.samsung_printer_toner_level"
+                    }
+                  ]
+                }
+              ]
             }
           ],
-          "max_columns": 4,
+          "max_columns": 3,
           "path": "system"
         },
         {
@@ -5487,15 +5678,15 @@
               "cards": [
                 {
                   "type": "markdown",
-                  "content": "## [AdGuard Home](/hassio/ingress/a0d7b954_adguard)"
+                  "content": "## [ESPHome Device Builder](/app/5c53de3b_esphome)"
                 },
                 {
                   "type": "markdown",
-                  "content": "## [ESPHome Device Builder](/hassio/ingress/5c53de3b_esphome)"
+                  "content": "## [EmonCMS](/app/60ed1c84_emoncms)"
                 },
                 {
                   "type": "markdown",
-                  "content": "## [EmonCMS](/hassio/ingress/60ed1c84_emoncms)"
+                  "content": "## [Grafana](/app/a0d7b954_grafana)"
                 }
               ]
             },
@@ -5504,15 +5695,15 @@
               "cards": [
                 {
                   "type": "markdown",
-                  "content": "## [Grafana](/hassio/ingress/a0d7b954_grafana)"
+                  "content": "## [InfluxDB](/app/a0d7b954_influxdb)"
                 },
                 {
                   "type": "markdown",
-                  "content": "## [InfluxDB](/hassio/ingress/a0d7b954_influxdb)"
+                  "content": "## [Matter Server](/app/core_matter_server)"
                 },
                 {
                   "type": "markdown",
-                  "content": "## [Matter Server](/hassio/ingress/core_matter_server)"
+                  "content": "## [NodeRED](/app/a0d7b954_nodered)"
                 }
               ]
             },
@@ -5521,26 +5712,21 @@
               "cards": [
                 {
                   "type": "markdown",
-                  "content": "## [NodeRED](/hassio/ingress/a0d7b954_nodered)"
+                  "content": "## [SQLite Web](/app/a0d7b954_sqlite-web)"
                 },
                 {
                   "type": "markdown",
-                  "content": "## [SQLite Web](/hassio/ingress/a0d7b954_sqlite-web)"
+                  "content": "## [Terminal](/app/core_ssh)"
                 },
                 {
                   "type": "markdown",
-                  "content": "## [Terminal](/hassio/ingress/core_ssh)"
+                  "content": "## [VS Code](/app/a0d7b954_vscode)"
                 }
               ]
             },
             {
               "type": "grid",
-              "cards": [
-                {
-                  "type": "markdown",
-                  "content": "## [VS Code](/hassio/ingress/a0d7b954_vscode)"
-                }
-              ]
+              "cards": []
             }
           ],
           "header": {

@@ -30,3 +30,14 @@ set_fr_thermostat:
     fr_thermostat:
       description: The thermostat to be set.
       example: climate.family_room_thermostat
+
+set_light_brightness_group:
+  name: Set Light Brightness Group
+  description: Sets the brightness of a group of lights, based off the brightness of a parent light.
+  fields:
+    parent_light:
+      description: The light that will set reference brightness.
+      example: light.living_room_wall_dimmer
+    child_light:
+      description: The light to be set.
+      example: light.living_room_lamp

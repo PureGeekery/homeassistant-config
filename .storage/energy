@@ -109,11 +109,6 @@
         "stat_rate": "sensor.lights_power"
       },
       {
-        "stat_consumption": "sensor.main_floor_media_center_electric_consumption_kwh",
-        "name": "Main Floor Media Center",
-        "stat_rate": "sensor.main_floor_media_center_plug_power"
-      },
-      {
         "stat_consumption": "sensor.network_rack_summation_delivered",
         "name": "Network Rack",
         "stat_rate": "sensor.network_rack_plug_power"
