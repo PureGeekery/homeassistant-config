@@ -230,6 +230,7 @@ watch_tv_downstairs:
     data: {}
     target:
       entity_id: remote.apple_tv
+    enabled: false
   - action: light.turn_on
     continue_on_error: true
     metadata: {}
@@ -360,7 +361,7 @@ watch_tv_main_floor:
       entity_id:
       - light.kitchen_overhead_lights
       - light.entryway_light
-      - light.living_room_lamps
+      - light.living_room_lamp
       - light.upstairs_hallway_light
       - light.main_floor_hallway
   - action: light.turn_on
@@ -751,13 +752,6 @@ goodnight_nicole:
     continue_on_error: true
     metadata: {}
     data:
-      percentage: 25
-    target:
-      entity_id: fan.bedjet_12fa
-  - action: fan.turn_on
-    continue_on_error: true
-    metadata: {}
-    data:
       percentage: 15
     target:
       entity_id: fan.snooz_c0_49_ef_27_a8_62
@@ -780,6 +774,9 @@ goodnight_nicole:
       entity_id: input_boolean.nicole_asleep
     data: {}
   - action: script.set_home_mode_to_sleep_when_everyone_asleep_murphy_bed_open_guest_mode_off
+    metadata: {}
+    data: {}
+  - action: script.set_bedjet
     metadata: {}
     data: {}
   alias: Goodnight Nicole
@@ -879,4 +876,58 @@ set_home_mode_to_sleep_when_everyone_asleep_murphy_bed_open_guest_mode_off:
         option: Sleep
   alias: Set Home Mode to Sleep when everyone asleep, Murphy Bed open, Guest Mode
     off
+  description: ''
+set_bedjet:
+  sequence:
+  - choose:
+    - conditions:
+      - alias: Ambient Temperature is 70 or greater
+        condition: template
+        value_template: '{{states(''sensor.bedroom_ecobee_sensor_temperature'') |
+          int >= 70}}'
+      sequence:
+      - action: climate.set_hvac_mode
+        metadata: {}
+        data:
+          hvac_mode: cool
+        target:
+          entity_id: climate.bedjet_12fa
+        alias: Turn on BedJet cool
+      - alias: Set BedJet to run for 6 hours
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '480'
+        target:
+          entity_id: number.bedjet_12fa_runtime_remaining
+    - conditions:
+      - alias: Ambient Temperature is less than 70 and greater than 65
+        condition: template
+        value_template: '{{states(''sensor.bedroom_ecobee_sensor_temperature'') |
+          int < 70 and states(''sensor.bedroom_ecobee_sensor_temperature'') | int
+          > 66 }}'
+      sequence:
+      - alias: Turn on BedJet cool
+        action: climate.set_hvac_mode
+        metadata: {}
+        data:
+          hvac_mode: 'off'
+        target:
+          entity_id: climate.bedjet_12fa
+    - conditions:
+      - alias: Ambient Temperature is less than or equal to 65
+        condition: template
+        value_template: '{{states(''sensor.bedroom_ecobee_sensor_temperature'') |
+          int <= 66}}'
+      sequence:
+      - alias: Turn BedJet off
+        action: climate.set_hvac_mode
+        metadata: {}
+        data:
+          hvac_mode: 'off'
+        target:
+          entity_id: climate.bedjet_12fa
+        enabled: true
+    enabled: true
+  alias: Set BedJet
   description: ''
