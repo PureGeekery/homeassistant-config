@@ -1734,7 +1734,10 @@
                   "name": "Workshop VOC"
                 },
                 {
-                  "type": "history-graph",
+                  "type": "statistics-graph",
+                  "title": "House Temperatures",
+                  "days_to_show": 3,
+                  "stat_types": "mean",
                   "entities": [
                     {
                       "entity": "sensor.living_room_multi_sensor_air_temperature",
@@ -1780,9 +1783,7 @@
                       "entity": "sensor.orange_bathroom_shower_switch_aht2x_temperature",
                       "name": "Orange Bathroom"
                     }
-                  ],
-                  "hours_to_show": 72,
-                  "title": "House Temperatures"
+                  ]
                 }
               ]
             }
@@ -2832,17 +2833,12 @@
                   }
                 },
                 {
-                  "type": "custom:apexcharts-card",
-                  "header": {
-                    "show": true,
-                    "title": "24 Hour Temperatures",
-                    "show_states": true,
-                    "colorize_states": true
+                  "type": "history-graph",
+                  "grid_options": {
+                    "columns": "full",
+                    "rows": "auto"
                   },
-                  "all_series_config": {
-                    "stroke_width": 2
-                  },
-                  "series": [
+                  "entities": [
                     {
                       "entity": "sensor.ecowitt_weather_station_outdoor_temperature",
                       "name": "Actual Temperature"
@@ -2860,9 +2856,10 @@
                       "name": "Dewpoint"
                     }
                   ],
-                  "grid_options": {
-                    "columns": "full"
-                  }
+                  "title": "24 Hour Temperatures",
+                  "hours_to_show": 24,
+                  "logarithmic_scale": false,
+                  "expand_legend": false
                 },
                 {
                   "type": "gauge",
