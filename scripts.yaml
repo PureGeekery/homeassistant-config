@@ -527,10 +527,12 @@ energy_saving_mode:
         entity_id: schedule.dte_peak_hours
         state: 'on'
       sequence:
-      - if:
+      - alias: Close Shades
+        if:
         - condition: state
-          entity_id: binary_sensor.kitchen_window
-          state: 'on'
+          entity_id: binary_sensor.kitchen_window_window_door_is_open_default
+          state:
+          - 'on'
         then:
         - action: cover.close_cover
           continue_on_error: true
@@ -547,7 +549,6 @@ energy_saving_mode:
           data: {}
           target:
             entity_id: cover.all_shades
-        alias: Close Shades
       - action: switch.turn_off
         continue_on_error: true
         metadata: {}
@@ -663,7 +664,6 @@ vacation_mode:
           entity_id:
           - switch.bambu_p1s
           - switch.bedroom_air_purifier
-          - switch.dining_room_air_purifier
           - switch.nicole_office_air_purifier
           - switch.den_media_center
           - switch.hair_straightener

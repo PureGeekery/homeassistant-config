@@ -60,10 +60,6 @@
                   "type": "tile",
                   "entity": "binary_sensor.basement_door",
                   "name": "Door"
-                },
-                {
-                  "type": "tile",
-                  "entity": "vacuum.roomba"
                 }
               ]
             },
@@ -108,11 +104,6 @@
                   "type": "tile",
                   "entity": "binary_sensor.bedroom_window",
                   "name": "Window"
-                },
-                {
-                  "type": "tile",
-                  "entity": "media_player.bedroom_homepod_2",
-                  "name": "HomePod"
                 },
                 {
                   "type": "tile",
@@ -239,11 +230,6 @@
                 {
                   "type": "tile",
                   "entity": "climate.ecobee_thermostat"
-                },
-                {
-                  "type": "tile",
-                  "entity": "switch.dining_room_air_purifier",
-                  "name": "Air Purifier"
                 }
               ]
             },
@@ -408,20 +394,8 @@
                 },
                 {
                   "type": "tile",
-                  "entity": "lock.cooper_se_lock"
-                },
-                {
-                  "type": "tile",
                   "entity": "cover.garage_door",
                   "name": "Door"
-                },
-                {
-                  "type": "tile",
-                  "entity": "switch.m240i_xdrive_climate"
-                },
-                {
-                  "type": "tile",
-                  "entity": "switch.rock_tumbler"
                 }
               ]
             },
@@ -558,10 +532,6 @@
                 {
                   "type": "tile",
                   "entity": "binary_sensor.garage_kitchen_door"
-                },
-                {
-                  "type": "tile",
-                  "entity": "binary_sensor.dishwasher_door"
                 }
               ]
             },
@@ -642,10 +612,6 @@
                   "type": "tile",
                   "entity": "fan.master_bath_fan",
                   "name": "Fan"
-                },
-                {
-                  "type": "tile",
-                  "entity": "switch.magic_mirror_screen"
                 }
               ]
             },
@@ -756,10 +722,6 @@
                 {
                   "type": "tile",
                   "entity": "switch.washer_bubble_soak"
-                },
-                {
-                  "type": "tile",
-                  "entity": "switch.washer"
                 }
               ]
             },
@@ -3238,7 +3200,7 @@
                   "visibility": [
                     {
                       "condition": "state",
-                      "entity": "switch.family_room_media_center",
+                      "entity": "switch.family_room_media_center_top",
                       "state": "on"
                     }
                   ]

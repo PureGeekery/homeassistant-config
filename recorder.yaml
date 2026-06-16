@@ -150,7 +150,6 @@ exclude:
     - sensor.oven_oven_mode
     - sensor.washer_completion_time
     - switch.main_floor_tv
-    - switch.washer
     - switch.washer_bubble_soak
     - switch.washer_wrinkle_prevent
     # Misc Entities
