@@ -28,6 +28,28 @@
                   "type": "custom:simple-plant-card",
                   "device": "e0255719fa7adc1fcd1eda8e3187b495",
                   "show_fertilization": true
+                },
+                {
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities",
+                    "title": "Tree Status"
+                  },
+                  "filter": {
+                    "include": [
+                      {
+                        "options": {},
+                        "entity_id": "sensor.*_soil_moisture",
+                        "state": "< 40",
+                        "sort": {
+                          "method": "state",
+                          "numeric": true
+                        }
+                      }
+                    ],
+                    "exclude": []
+                  },
+                  "show_empty": false
                 }
               ],
               "column_span": 4
@@ -37,9 +59,9 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Porch",
+                  "heading": "Outside",
                   "heading_style": "title",
-                  "icon": ""
+                  "icon": "mdi:pine-tree"
                 },
                 {
                   "type": "custom:simple-plant-card",
@@ -246,7 +268,8 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "786a4ea69be666af6614e5cc09b30d7f"
+                  "device": "786a4ea69be666af6614e5cc09b30d7f",
+                  "show_fertilization": true
                 },
                 {
                   "type": "custom:simple-plant-card",
@@ -270,6 +293,11 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
+                  "device": "d6c4cb340040b0721947f977b035791f",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
                   "device": "96384f20b247cbb714920101e7398364",
                   "show_fertilization": true
                 },
@@ -280,17 +308,22 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
+                  "device": "8d6943355b03cae437713f74e0fdc9d3",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
+                  "device": "59a973f5cd40f7da43d85579275dde12",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
                   "device": "ff7c366b440a9553ab095cb12c07b1a8",
                   "show_fertilization": true
                 },
                 {
                   "type": "custom:simple-plant-card",
                   "device": "8f09e3a68a9f15d125bf6581e3a780ec",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
-                  "device": "d96740717cacf4318884480175a807f1",
                   "show_fertilization": true
                 },
                 {
@@ -311,6 +344,16 @@
                 {
                   "type": "custom:simple-plant-card",
                   "device": "9c70c86ec414a57a3d76b25d63a736ec",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
+                  "device": "9ab8ba25a5735bb56963e417e9e191ed",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
+                  "device": "d01960c71fd6ed0edd9957d4a30bb926",
                   "show_fertilization": true
                 }
               ],

@@ -2324,7 +2324,7 @@
     metadata: {}
     data: {}
     target:
-      entity_id: remote.apple_tv
+      entity_id: remote.family_room_apple_tv
   mode: single
 - id: turn_on_main_floor_media_center_at_4_00pm
   alias: Turn on main floor media center at 4:00pm
@@ -2720,13 +2720,15 @@
         entity_id: sensor.current_month
         state: '1'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
           value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -2769,7 +2771,10 @@
         data:
           value: '7'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -2855,8 +2860,7 @@
         metadata: {}
         data:
           value: '14'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+        enabled: false
       - alias: Set Pothos/Philodendron
         action: number.set_value
         metadata: {}
@@ -2901,6 +2905,13 @@
           value: '10'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '28'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -2940,6 +2951,13 @@
           value: '10'
         target:
           entity_id: number.simple_plant_days_between_waterings_umbrella_tree
+      - alias: Set Watermelon Ivy
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '14'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -2952,13 +2970,15 @@
         entity_id: sensor.current_month
         state: '2'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '12'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -3001,7 +3021,10 @@
         data:
           value: '6'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -3075,6 +3098,12 @@
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '12'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -3119,6 +3148,13 @@
           value: '9'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '25'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -3165,13 +3201,13 @@
           value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
           value: '12'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -3184,13 +3220,15 @@
         entity_id: sensor.current_month
         state: '3'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '11'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -3233,7 +3271,10 @@
         data:
           value: '5'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -3307,6 +3348,12 @@
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '11'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -3351,6 +3398,13 @@
           value: '8'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '24'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -3397,13 +3451,13 @@
           value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
           value: '11'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -3416,13 +3470,15 @@
         entity_id: sensor.current_month
         state: '4'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -3459,7 +3515,10 @@
         data:
           value: '4'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -3545,8 +3604,7 @@
         metadata: {}
         data:
           value: '9'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -3591,6 +3649,13 @@
           value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '21'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -3630,6 +3695,13 @@
           value: '7'
         target:
           entity_id: number.simple_plant_days_between_waterings_umbrella_tree
+      - alias: Set Watermelon Ivy
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '10'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -3642,13 +3714,15 @@
         entity_id: sensor.current_month
         state: '5'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -3691,7 +3765,10 @@
         data:
           value: '4'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -3777,8 +3854,7 @@
         metadata: {}
         data:
           value: '9'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -3823,11 +3899,18 @@
           value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '15'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
         data:
-          value: '5'
+          value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_silver_inch_plant
       - alias: Set Snake Plants
@@ -3862,6 +3945,13 @@
           value: '7'
         target:
           entity_id: number.simple_plant_days_between_waterings_umbrella_tree
+      - alias: Set Watermelon Ivy
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '9'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -3874,18 +3964,20 @@
         entity_id: sensor.current_month
         state: '6'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
           value: '7'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
         data:
-          value: '16'
+          value: '12'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_short_leaved_aloe
@@ -3901,7 +3993,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '9'
         target:
           entity_id: number.simple_plant_days_between_waterings_rex_begonia_red_kiss
       - alias: Set Bromiliads
@@ -3923,12 +4015,15 @@
         data:
           value: '3'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
         data:
-          value: '2'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_corkscrew_croton
@@ -3937,7 +4032,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '8'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_striped_dracaena
@@ -3970,14 +4065,14 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '1'
+          value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_monstera
       - alias: Set Moonstones
         action: number.set_value
         metadata: {}
         data:
-          value: '16'
+          value: '10'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_moonstones
@@ -3986,17 +4081,23 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '6'
         enabled: false
       - alias: Set Peperomia
         action: number.set_value
         metadata: {}
         data:
-          value: '11'
+          value: '8'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '5'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4012,7 +4113,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '5'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_prayer_plant_1
@@ -4022,14 +4123,14 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '5'
+          value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_purple_passion_plant
       - alias: Set Purple Spider Worts
         action: number.set_value
         metadata: {}
         data:
-          value: '4'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_purple_heart_spider_wort_1
@@ -4038,21 +4139,28 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '5'
+          value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '14'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
         data:
-          value: '2'
+          value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_silver_inch_plant
       - alias: Set Snake Plants
         action: number.set_value
         metadata: {}
         data:
-          value: '15'
+          value: '12'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_black_coral_snake_plant
@@ -4070,14 +4178,14 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '14'
+          value: '11'
         target:
           entity_id: number.simple_plant_days_between_waterings_string_of_pearls
       - alias: Set Umbrella Trees
         action: number.set_value
         metadata: {}
         data:
-          value: '5'
+          value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_umbrella_tree
       - alias: Set Nerve Plants
@@ -4087,18 +4195,18 @@
           value: '2'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
           value: '7'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
         data:
-          value: '14'
+          value: '11'
         target:
           entity_id: number.simple_plant_days_between_waterings_zz_plant
     - conditions:
@@ -4106,13 +4214,15 @@
         entity_id: sensor.current_month
         state: '7'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -4155,7 +4265,10 @@
         data:
           value: '3'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -4229,6 +4342,12 @@
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '7'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4273,6 +4392,13 @@
           value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '15'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -4319,13 +4445,13 @@
           value: '3'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
           value: '7'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -4338,13 +4464,15 @@
         entity_id: sensor.current_month
         state: '8'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -4387,7 +4515,10 @@
         data:
           value: '4'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -4461,6 +4592,12 @@
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '9'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4505,6 +4642,13 @@
           value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '16'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -4551,13 +4695,13 @@
           value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
           value: '9'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -4570,13 +4714,15 @@
         entity_id: sensor.current_month
         state: '9'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '10'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -4619,7 +4765,10 @@
         data:
           value: '5'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -4693,6 +4842,12 @@
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '10'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4737,6 +4892,13 @@
           value: '7'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '21'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -4783,13 +4945,13 @@
           value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
           value: '10'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -4802,13 +4964,15 @@
         entity_id: sensor.current_month
         state: '10'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '12'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -4851,7 +5015,10 @@
         data:
           value: '6'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -4925,6 +5092,12 @@
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '12'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -4969,6 +5142,13 @@
           value: '8'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '24'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -5015,13 +5195,13 @@
           value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
           value: '12'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -5034,13 +5214,15 @@
         entity_id: sensor.current_month
         state: '11'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
-          value: '13'
+          value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -5083,7 +5265,10 @@
         data:
           value: '7'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -5157,6 +5342,12 @@
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '14'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -5201,6 +5392,13 @@
           value: '9'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '26'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -5247,13 +5445,13 @@
           value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
-          value: '14'
+          value: '13'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
@@ -5266,13 +5464,15 @@
         entity_id: sensor.current_month
         state: '12'
       sequence:
-      - alias: Set African Mask Plant
+      - alias: Set Alocasia
         action: number.set_value
         metadata: {}
         data:
           value: '14'
         target:
-          entity_id: number.simple_plant_days_between_waterings_african_mask_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_african_mask_plant
+          - number.simple_plant_days_between_waterings_red_secret_alocasia
       - alias: Set Aloes
         action: number.set_value
         metadata: {}
@@ -5315,7 +5515,10 @@
         data:
           value: '7'
         target:
-          entity_id: number.simple_plant_days_between_waterings_carnivorous_terrarium
+          entity_id:
+          - number.simple_plant_days_between_waterings_carnivorous_terrarium
+          - number.simple_plant_days_between_waterings_venus_fly_trap
+          - number.simple_plant_days_between_waterings_pitcher_plant
       - alias: Set Crotons
         action: number.set_value
         metadata: {}
@@ -5389,6 +5592,12 @@
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
           - number.simple_plant_days_between_waterings_marble_peperomia_2
+      - alias: Set Persian Shield Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '14'
+        enabled: false
       - alias: Set Pothos
         action: number.set_value
         metadata: {}
@@ -5433,6 +5642,13 @@
           value: '10'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
+      - alias: Set Sedum
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '28'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -5479,13 +5695,20 @@
           value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
-      - alias: Set Persian Shield Plant
+      - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
-          value: '14'
+          value: '11'
         target:
-          entity_id: number.simple_plant_days_between_waterings_persian_shield_plant
+          entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
+      - alias: Set ZZ Plant
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '27'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_zz_plant
     continue_on_error: true
   mode: single
 - id: '1758915679413'

@@ -228,9 +228,9 @@ watch_tv_downstairs:
     continue_on_error: true
     metadata: {}
     data: {}
+    enabled: true
     target:
-      entity_id: remote.apple_tv
-    enabled: false
+      entity_id: remote.family_room_apple_tv
   - action: light.turn_on
     continue_on_error: true
     metadata: {}
