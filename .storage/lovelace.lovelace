@@ -308,6 +308,34 @@
                   "type": "custom:auto-entities",
                   "card": {
                     "type": "entities",
+                    "title": "Tree Status"
+                  },
+                  "filter": {
+                    "include": [
+                      {
+                        "entity_id": "sensor.*_soil_moisture",
+                        "state": "< 45",
+                        "sort": {
+                          "method": "state",
+                          "numeric": true
+                        },
+                        "options": {
+                          "type": "custom:template-entity-row",
+                          "state": "{{ states(config.entity)|round(0)}}%\n",
+                          "card_mod": {
+                            "style": ":host {\n  color:\n    {% set level = states(config.entity)|round(0) %}\n    {% if level >= 50 %} darkgreen\n    {% elif level >= 40 %} orange\n    {% else %} darkred\n    {% endif %}\n"
+                          }
+                        }
+                      }
+                    ],
+                    "exclude": []
+                  },
+                  "show_empty": false
+                },
+                {
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities",
                     "title": "Plant Care"
                   },
                   "filter": {
@@ -323,7 +351,14 @@
                   "sort": {
                     "method": "last_changed"
                   },
-                  "show_empty": false
+                  "show_empty": false,
+                  "visibility": [
+                    {
+                      "condition": "state",
+                      "entity": "person.nicole",
+                      "state": "home"
+                    }
+                  ]
                 },
                 {
                   "display_order": "duedate_asc",
@@ -462,26 +497,12 @@
                       "type": "target-temperature"
                     }
                   ]
-                },
-                {
-                  "show_current": true,
-                  "show_forecast": true,
-                  "type": "weather-forecast",
-                  "entity": "weather.ecobee_thermostat",
-                  "forecast_type": "daily"
                 }
               ]
             },
             {
-              "type": "custom:advanced-camera-card",
-              "cameras": [
-                {
-                  "camera_entity": "camera.doorbell"
-                },
-                {
-                  "camera_entity": "camera.garage"
-                }
-              ]
+              "type": "custom:clock-weather-card",
+              "entity": "weather.pirateweather"
             }
           ],
           "visible": [
@@ -605,7 +626,7 @@
                       "color": "#A79B8E"
                     },
                     {
-                      "entity": "calendar.lions_schedule",
+                      "entity": "calendar.detroit_lions",
                       "name": "Lions Schedule"
                     },
                     {
@@ -2422,49 +2443,6 @@
                   "grid_options": {
                     "columns": "full"
                   }
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "custom:auto-entities",
-                  "card": {
-                    "type": "entities",
-                    "title": "Plant Care"
-                  },
-                  "filter": {
-                    "include": [
-                      {
-                        "options": {},
-                        "entity_id": "binary_sensor.simple_plant_todo_*",
-                        "state": "on"
-                      }
-                    ],
-                    "exclude": []
-                  },
-                  "sort": {
-                    "method": "last_changed"
-                  },
-                  "show_empty": false
-                },
-                {
-                  "type": "tile",
-                  "entity": "sensor.washer_job_state"
-                },
-                {
-                  "type": "tile",
-                  "entity": "sensor.washer_completion_time",
-                  "features_position": "bottom",
-                  "vertical": false,
-                  "visibility": [
-                    {
-                      "condition": "state",
-                      "entity": "sensor.washer_washer_machine_state",
-                      "state_not": "stop"
-                    }
-                  ]
                 },
                 {
                   "type": "vertical-stack",
@@ -2500,6 +2478,84 @@
                           "features_position": "bottom"
                         }
                       ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.back_woods_norway_spruce_soil_moisture"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities",
+                    "title": "Tree Status"
+                  },
+                  "filter": {
+                    "include": [
+                      {
+                        "entity_id": "sensor.*_soil_moisture",
+                        "sort": {
+                          "method": "state",
+                          "numeric": true
+                        },
+                        "options": {
+                          "type": "custom:template-entity-row",
+                          "state": "{{ states(config.entity)|round(0)}}%\n",
+                          "card_mod": {
+                            "style": ":host {\n  color:\n    {% set level = states(config.entity)|round(0) %}\n    {% if level >= 50 %} darkgreen\n    {% elif level >= 40 %} orange\n    {% else %} darkred\n    {% endif %}\n}\n"
+                          }
+                        }
+                      }
+                    ],
+                    "exclude": []
+                  },
+                  "show_empty": false
+                },
+                {
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities",
+                    "title": "Plant Care"
+                  },
+                  "filter": {
+                    "include": [
+                      {
+                        "options": {},
+                        "entity_id": "binary_sensor.simple_plant_todo_*",
+                        "state": "on"
+                      }
+                    ],
+                    "exclude": []
+                  },
+                  "sort": {
+                    "method": "last_changed"
+                  },
+                  "show_empty": false
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.washer_job_state"
+                },
+                {
+                  "type": "tile",
+                  "entity": "sensor.washer_completion_time",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "visibility": [
+                    {
+                      "condition": "state",
+                      "entity": "sensor.washer_washer_machine_state",
+                      "state_not": "stop"
                     }
                   ]
                 },
@@ -3086,7 +3142,7 @@
                 },
                 {
                   "type": "gauge",
-                  "entity": "sensor.camper_green_giant",
+                  "entity": "sensor.camper_green_giant_soil_moisture",
                   "segments": [
                     {
                       "from": 0,
@@ -3107,7 +3163,7 @@
                 },
                 {
                   "type": "gauge",
-                  "entity": "sensor.driveway_arborvitae",
+                  "entity": "sensor.driveway_arborvitae_soil_moisture",
                   "segments": [
                     {
                       "from": 0,
@@ -3255,7 +3311,15 @@
                   "color_palette": "classic-solar",
                   "show_battery_indicator": false,
                   "show_battery_flow": false,
-                  "decimal_places": 2
+                  "decimal_places": 2,
+                  "visibility": [
+                    {
+                      "condition": "user",
+                      "users": [
+                        "9125054b39ad488f9a8c52a13de70d0e"
+                      ]
+                    }
+                  ]
                 },
                 {
                   "type": "custom:openevse-card",
@@ -3682,6 +3746,26 @@
                 }
               ],
               "column_span": 2
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "energy-distribution",
+                  "link_dashboard": true,
+                  "collection_key": "energy_dash"
+                },
+                {
+                  "type": "energy-solar-graph",
+                  "collection_key": "energy_dash"
+                },
+                {
+                  "type": "energy-date-selection",
+                  "vertical_opening_direction": "auto",
+                  "opening_direction": "auto",
+                  "collection_key": "energy_dash"
+                }
+              ]
             }
           ]
         },
