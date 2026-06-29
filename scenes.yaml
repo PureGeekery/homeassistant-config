@@ -6,13 +6,13 @@
       state: 'on'
     light.pixel_post_light:
       state: 'off'
-    light.basement_lights:
+    light.basement_light_group:
       state: 'off'
-    light.downstairs_lights:
+    light.downstairs_light_group:
       state: 'off'
-    light.upstairs_lights:
+    light.upstairs_light_group:
       state: 'off'
-    light.main_floor_lights:
+    light.main_floor_light_group:
       state: 'off'
     light.workshop_lights:
       state: 'off'
@@ -66,13 +66,13 @@
       entity_only: true
     light.pixel_post_light:
       entity_only: true
-    light.basement_lights:
+    light.basement_light_group:
       entity_only: true
-    light.downstairs_lights:
+    light.downstairs_light_group:
       entity_only: true
-    light.upstairs_lights:
+    light.upstairs_light_group:
       entity_only: true
-    light.main_floor_lights:
+    light.main_floor_light_group:
       entity_only: true
     light.workshop_lights:
       entity_only: true

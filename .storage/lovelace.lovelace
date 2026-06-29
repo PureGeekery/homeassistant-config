@@ -219,19 +219,19 @@
                   "type": "entities",
                   "entities": [
                     {
-                      "entity": "light.upstairs_lights"
+                      "entity": "light.upstairs_light_group"
                     },
                     {
-                      "entity": "light.main_floor_lights"
+                      "entity": "light.main_floor_light_group"
                     },
                     {
-                      "entity": "light.downstairs_lights"
+                      "entity": "light.downstairs_light_group"
                     },
                     {
-                      "entity": "light.basement_lights"
+                      "entity": "light.basement_light_group"
                     },
                     {
-                      "entity": "light.outdoor_lights"
+                      "entity": "light.outdoor_light_group"
                     }
                   ],
                   "title": "Lights",
@@ -709,19 +709,19 @@
                   "type": "entities",
                   "entities": [
                     {
-                      "entity": "light.outdoor_lights"
+                      "entity": "light.outdoor_light_group"
                     },
                     {
-                      "entity": "light.upstairs_lights"
+                      "entity": "light.upstairs_light_group"
                     },
                     {
-                      "entity": "light.main_floor_lights"
+                      "entity": "light.main_floor_light_group"
                     },
                     {
-                      "entity": "light.downstairs_lights"
+                      "entity": "light.downstairs_light_group"
                     },
                     {
-                      "entity": "light.basement_lights"
+                      "entity": "light.basement_light_group"
                     }
                   ],
                   "title": "Lights",
@@ -1448,6 +1448,9 @@
                       "entity": "light.pixel_post_light"
                     },
                     {
+                      "entity": "switch.wled_lights"
+                    },
+                    {
                       "entity": "light.holiday_lights"
                     }
                   ],
@@ -2131,6 +2134,9 @@
                       "name": "Closet Room"
                     },
                     {
+                      "entity": "binary_sensor.green_bath_motion_sensor"
+                    },
+                    {
                       "type": "divider"
                     },
                     {
@@ -2376,6 +2382,25 @@
               "type": "grid",
               "cards": [
                 {
+                  "type": "custom:auto-entities",
+                  "card": {
+                    "type": "entities"
+                  },
+                  "filter": {
+                    "include": [
+                      {
+                        "options": {},
+                        "entity_id": "binary_sensor.roborock*",
+                        "state": "Problem",
+                        "sort": {
+                          "method": "entity_id"
+                        }
+                      }
+                    ],
+                    "exclude": []
+                  }
+                },
+                {
                   "type": "tile",
                   "entity": "vacuum.roborock_main_floor",
                   "features": [
@@ -2478,14 +2503,6 @@
                           "features_position": "bottom"
                         }
                       ]
-                    }
-                  ]
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "sensor.back_woods_norway_spruce_soil_moisture"
                     }
                   ]
                 }
