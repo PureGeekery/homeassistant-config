@@ -8,11 +8,37 @@ exclude:
     - siren
     - update
   entity_globs:
+    # 3D Printer Entities
+    - binary_sensor.3d_printer*
+    - fan.3d_printer*
+    - light.3d_printer*
+    - select.3d_printer*
+    - sensor.3d_printer*
+    - switch.3d_printer*
+    # Apple TV Entities
+    - binary_sensor.*keyboard_focus
+    - media_player.*apple_tv
+    - media_player.*homepod
+    - remote.*apple_tv
+    - remote.*homepod
+    # Backup
+    - sensor.backup_*
+    # Donetick
+    - sensor.donetick_chores*
     # Doorbell Entities
     - select.doorbell_*
     - switch.doorbell_*
     - select.reolink_chime_*
     - switch.reolink_chime_*
+    # Frigate Entities
+    - switch.*_detect
+    - switch.*_motion
+    - switch.*_recordings
+    - switch.*_review_alerts
+    - switch.*_review_detections
+    - switch.*_snapshots
+    # Groups
+    - light.*_group
     # MusicCast Entities
     - select.*_musiccast_display_brightness
     - select.*_musiccast_equalizer_mode
@@ -90,7 +116,12 @@ exclude:
     - binary_sensor.*_workday_sensor # Workday
   entities:
     # BedJet
+    - binary_sensor.bedjet_12fa_connectivity
+    - button.bedjet_12fa_sync_clock
+    - fan.bedjet_12fa
+    - sensor.bedjet_12fa_notification
     - sensor.bedjet_12fa_runtime_remaining
+    - sensor.bedjet_12fa_update_phase
     - switch.bedjet_12fa_enable_led
     - switch.bedjet_12fa_mute_beeps
     # Change device type of a switch - only track new device type
@@ -114,10 +145,6 @@ exclude:
     - sensor.dishwasher_program_finished
     - sensor.dishwasher_program_progress
     - sensor.dishwasher_remaining_program_time
-    # MINI
-    - binary_sensor.cooper_se_pre_entry_climatization
-    - sensor.cooper_se_charging_end_time
-    - sensor.cooper_se_charging_target
     # OpenEVSE
     - light.openevse_led_brightness
     - sensor.openevse_divert_mode
@@ -125,18 +152,6 @@ exclude:
     - sensor.openevse_service_level
     - sensor.openevse_station_status
     - sensor.openevse_wifi_signal_strength
-    # OMV
-    - binary_sensor.omv_config_dirty
-    - binary_sensor.omv_reboot_pending
-    - binary_sensor.omv_update_available
-    - sensor.omv_disk
-    - sensor.omv_disk_primary
-    - sensor.omv_sdb
-    - sensor.omv_system_uptime
-    - sensor.omv_uptime
-    # OpenUV
-    - sensor.current_uv_level
-    - sensor.max_uv_index
     # Schlage
     - binary_sensor.workshop_keypad_disabled
     - select.workshop_auto_lock_time
@@ -152,6 +167,61 @@ exclude:
     - switch.main_floor_tv
     - switch.washer_bubble_soak
     - switch.washer_wrinkle_prevent
+    # Spook - Home Assistant
+    - sensor.air_quality
+    - sensor.alarm_control_panels
+    - sensor.areas
+    - sensor.automations
+    - sensor.binary_sensors
+    - sensor.buttons
+    - sensor.calendars
+    - sensor.cameras
+    - sensor.climate
+    - sensor.covers
+    - sensor.custom_integrations
+    - sensor.datetimes
+    - sensor.dates
+    - sensor.device_trackers
+    - sensor.devices
+    - sensor.entities
+    - sensor.fans
+    - sensor.humidifiers
+    - sensor.images
+    - sensor.input_booleans
+    - sensor.input_buttons
+    - sensor.input_datetimes
+    - sensor.input_numbers
+    - sensor.input_selects
+    - sensor.input_texts
+    - sensor.integrations
+    - sensor.lights
+    - sensor.locks
+    - sensor.media_players
+    - sensor.numbers
+    - sensor.persistent_notifications
+    - sensor.persons
+    - sensor.remotes
+    - sensor.scenes
+    - sensor.scripts
+    - sensor.selects
+    - sensor.sensors
+    - sensor.sirens
+    - sensor.stt
+    - sensor.suns
+    - sensor.switches
+    - sensor.tts
+    - sensor.texts
+    - sensor.times
+    - sensor.update
+    - sensor.vacuums
+    - sensor.water_heaters
+    - sensor.weather
+    - sensor.zones
+    # Spook - Repair'
+    - event.repair
+    - sensor.active_issues
+    - sensor.ignored_issues
+    - sensor.issues
     # Misc Entities
     - sensor.allergy_index_tomorrow # IQVIA
     - sensor.garage_door_dist # OpenGarage

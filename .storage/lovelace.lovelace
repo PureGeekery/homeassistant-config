@@ -321,9 +321,9 @@
                         },
                         "options": {
                           "type": "custom:template-entity-row",
-                          "state": "{{ states(config.entity)|round(0)}}%\n",
+                          "state": "{% if states(config.entity) not in [\"unavailable\", \"undefined\"] %}\n  {{ states(config.entity)|round(0,default = 0)}}%\n{% else %}\n  Offline\n{% endif %}\n",
                           "card_mod": {
-                            "style": ":host {\n  color:\n    {% set level = states(config.entity)|round(0) %}\n    {% if level >= 50 %} darkgreen\n    {% elif level >= 40 %} orange\n    {% else %} darkred\n    {% endif %}\n"
+                            "style": ":host {\n  color:\n    {% set level = states(config.entity)|round(0, default = 0) %}\n    {% if level >= 50 %} darkgreen\n    {% elif level >= 40 %} orange\n    {% else %} darkred\n    {% endif %}\n"
                           }
                         }
                       }
@@ -2464,10 +2464,17 @@
                   },
                   "hide_state": true,
                   "vertical": false,
-                  "features_position": "bottom",
-                  "grid_options": {
-                    "columns": "full"
-                  }
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "tile",
+                  "entity": "button.roborock_downstairs_clean_upstairs",
+                  "name": {
+                    "type": "entity"
+                  },
+                  "hide_state": true,
+                  "vertical": false,
+                  "features_position": "bottom"
                 },
                 {
                   "type": "vertical-stack",
@@ -2527,9 +2534,9 @@
                         },
                         "options": {
                           "type": "custom:template-entity-row",
-                          "state": "{{ states(config.entity)|round(0)}}%\n",
+                          "state": "{% if states(config.entity) not in [\"unavailable\", \"undefined\"] %}\n  {{ states(config.entity)|round(0,default = 0)}}%\n{% else %}\n  Offline\n{% endif %}\n",
                           "card_mod": {
-                            "style": ":host {\n  color:\n    {% set level = states(config.entity)|round(0) %}\n    {% if level >= 50 %} darkgreen\n    {% elif level >= 40 %} orange\n    {% else %} darkred\n    {% endif %}\n}\n"
+                            "style": ":host {\n  color:\n    {% set level = states(config.entity)|round(0, default = 0) %}\n    {% if level >= 50 %} darkgreen\n    {% elif level >= 40 %} orange\n    {% else %} darkred\n    {% endif %}\n}\n"
                           }
                         }
                       }
@@ -5722,6 +5729,19 @@
               "cards": [
                 {
                   "type": "markdown",
+                  "content": "## [BirdNet](http://192.168.1.33:8080/ui/dashboard)\n\nBirdNet dashboard."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## [DoneTick](http://192.168.1.50:2021/)\n\nChore management."
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "markdown",
                   "content": "## [EcoWitt](http://192.168.40.79/liveData.html)\n\nEcoWitt weather station. There is no password to login."
                 },
                 {
@@ -5755,10 +5775,6 @@
                   "content": "## [UniFi](https://192.168.1.1/network/default/dashboard)\n\nDoes not use HA password."
                 }
               ]
-            },
-            {
-              "type": "grid",
-              "cards": []
             },
             {
               "type": "grid",

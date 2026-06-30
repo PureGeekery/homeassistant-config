@@ -19,14 +19,7 @@
                   "type": "heading",
                   "heading": "Basement",
                   "icon": "mdi:home-floor-b",
-                  "badges": [
-                    {
-                      "entity": "sensor.basement_sensor_air_temperature"
-                    },
-                    {
-                      "entity": "sensor.basement_sensor_humidity"
-                    }
-                  ],
+                  "badges": [],
                   "tap_action": {
                     "action": "navigate",
                     "navigation_path": "areas-basement"
@@ -4334,6 +4327,24 @@
                   "grid_options": {
                     "columns": "full"
                   }
+                },
+                {
+                  "type": "tile",
+                  "grid_options": {
+                    "columns": "full"
+                  },
+                  "entity": "sensor.green_bath_motion_sensor_battery",
+                  "name": "Motion Sensorr",
+                  "state_content": [
+                    "state",
+                    "battery_size",
+                    "last_updated"
+                  ],
+                  "vertical": false,
+                  "icon_tap_action": {
+                    "action": "more-info"
+                  },
+                  "features_position": "bottom"
                 }
               ]
             }
@@ -4361,7 +4372,15 @@
               "show_name": false,
               "show_state": true,
               "show_icon": true,
-              "entity": "binary_sensor.green_bathroom_nightlight_motion"
+              "entity": "binary_sensor.green_bath_motion_sensor"
+            },
+            {
+              "type": "entity",
+              "show_name": false,
+              "show_state": true,
+              "show_icon": true,
+              "entity": "sensor.green_bath_motion_sensor_illuminance",
+              "color": "amber"
             }
           ],
           "subview": true,

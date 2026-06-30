@@ -32,7 +32,12 @@ utility_meter: !include utility_meters.yaml
 logger:
   default: warning
   logs:
-    roombapy.roomba: error
-    custom_components.openmediavault.omv_api: error
+    custom_components.simple_plant: error
+    homeassistant.components.apple_tv: fatal
+    homeassistant.components.automation.climate_workshop_hvac: error
+    homeassistant.components.matter: error
     homeassistant.components.openevse: error
     homeassistant.components.python_script: warning
+    homeassistant.components.sensor.recorder: error
+    roborock.data.code_mappings: error
+    zigpy.application: error

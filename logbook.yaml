@@ -1,5 +1,6 @@
 exclude:
-  # domains:
+  domains:
+    - automation #the results of the automation are logged, we don't need the automation itself
   entity_globs:
     - group.*_lights # Light Groups
     - binary_sensor.omv_*_service # OMV

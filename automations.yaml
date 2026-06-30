@@ -103,29 +103,6 @@
         - switch.family_room_media_center_top
   mode: parallel
   max: 10
-- id: goodnight_2am
-  alias: Scene - Goodnight at 2:00am
-  description: ''
-  triggers:
-  - at: 02:00:00
-    trigger: time
-  conditions:
-  - condition: state
-    entity_id: group.people
-    state: home
-    alias: Someone is home
-  actions:
-  - action: script.goodnight
-    metadata: {}
-    data: {}
-    enabled: false
-  - action: input_select.select_option
-    metadata: {}
-    data:
-      option: Sleep
-    target:
-      entity_id: input_select.home_mode
-  mode: single
 - id: watch_tv_after_sunset
   alias: Scene - Trigger watch TV when Remote goes from PowerOff after sunset
   description: ''
