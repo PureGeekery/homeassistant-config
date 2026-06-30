@@ -1510,9 +1510,12 @@
   alias: Switch Master Bedroom Fan Direction with HVAC Mode
   description: ''
   triggers:
-  - trigger: state
-    entity_id:
-    - climate.ecobee_thermostat
+  - device_id: 80e2ea7676adeea018b6e96cb57a3af5
+    domain: climate
+    entity_id: 54b1fea52a0a813e5b05b1655dfba00b
+    type: hvac_mode_changed
+    trigger: device
+    to: 'off'
   conditions: []
   actions:
   - choose:
@@ -1839,8 +1842,8 @@
     - sensor.workshop_sensor_humidity
     for:
       hours: 0
-      minutes: 0
-      seconds: 30
+      minutes: 1
+      seconds: 0
   conditions:
   - condition: state
     entity_id: schedule.dte_peak_hours
@@ -2152,12 +2155,14 @@
   triggers:
   - trigger: state
     entity_id:
-    - binary_sensor.green_bathroom_nightlight_motion
-    to: 'on'
+    - binary_sensor.green_bath_motion_sensor
+    to:
+    - 'on'
   - trigger: state
     entity_id:
-    - binary_sensor.green_bathroom_nightlight_motion
-    to: 'off'
+    - binary_sensor.green_bath_motion_sensor
+    to:
+    - 'off'
     for:
       hours: 0
       minutes: 10
@@ -2172,8 +2177,9 @@
       - condition: and
         conditions:
         - condition: state
-          entity_id: binary_sensor.green_bathroom_nightlight_motion
-          state: 'on'
+          entity_id: binary_sensor.green_bath_motion_sensor
+          state:
+          - 'on'
         - condition: state
           entity_id: input_select.home_mode
           state: Home
@@ -2181,16 +2187,19 @@
           entity_id: group.anyone_asleep
           state:
           - 'off'
+        enabled: true
       sequence:
       - action: light.turn_on
         metadata: {}
         data: {}
         target:
           entity_id: light.green_bath_vanity_lights
+        enabled: true
     - conditions:
       - condition: state
-        entity_id: binary_sensor.green_bathroom_nightlight_motion
-        state: 'off'
+        entity_id: binary_sensor.green_bath_motion_sensor
+        state:
+        - 'off'
         for:
           hours: 0
           minutes: 10
@@ -2590,18 +2599,19 @@
   - trigger: state
     entity_id:
     - climate.ecobee_thermostat
-    attribute: hvac_action
-    to: cooling
+    attribute: fan
+    from:
+    - 'off'
+    to:
+    - 'on'
   - trigger: state
     entity_id:
     - climate.ecobee_thermostat
-    attribute: hvac_action
-    to: heating
-  - trigger: state
-    entity_id:
-    - climate.ecobee_thermostat
-    attribute: hvac_action
-    to: idle
+    attribute: fan
+    from:
+    - 'on'
+    to:
+    - 'off'
   conditions: []
   actions:
   - action: script.blue_air_fan_control
@@ -2879,8 +2889,7 @@
           value: '14'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -3122,8 +3131,7 @@
           value: '12'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -3372,8 +3380,7 @@
           value: '11'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -3623,8 +3630,7 @@
           value: '9'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -3873,8 +3879,7 @@
           value: '9'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -4116,8 +4121,7 @@
           value: '5'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -4366,8 +4370,7 @@
           value: '7'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -4616,8 +4619,7 @@
           value: '2'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -4866,8 +4868,7 @@
           value: '10'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -5116,8 +5117,7 @@
           value: '12'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -5366,8 +5366,7 @@
           value: '13'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Passion
         action: number.set_value
@@ -5616,8 +5615,7 @@
           value: '14'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_prayer_plant_1
-          - number.simple_plant_days_between_waterings_prayer_plant_2
+          - number.simple_plant_days_between_waterings_prayer_plant
           - number.simple_plant_days_between_waterings_rabbit_foot_prayer_plant
       - alias: Set Purple Spider Worts
         action: number.set_value

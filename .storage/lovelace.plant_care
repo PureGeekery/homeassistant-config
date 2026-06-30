@@ -178,11 +178,6 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "63f820dbcb844305136a4d0cd500c921",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
                   "device": "78494afd0c459d654c5e9e9664b6adff",
                   "show_fertilization": true
                 },
@@ -298,7 +293,7 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "96384f20b247cbb714920101e7398364",
+                  "device": "cbc4bf9fc745ef03e39ce9d15a66809c",
                   "show_fertilization": true
                 },
                 {
