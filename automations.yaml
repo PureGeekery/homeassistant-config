@@ -2190,65 +2190,6 @@
           - light.green_bath_tub_dimmer
           - light.green_bath_vanity_lights
   mode: single
-- id: 3d_printer_idle_mode
-  alias: 3D Printer Idle Mode
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - sensor.3d_printer_current_stage
-    to:
-    - idle
-    for:
-      hours: 0
-      minutes: 30
-      seconds: 0
-  - trigger: state
-    entity_id:
-    - sensor.3d_printer_current_stage
-    from: idle
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 30
-  conditions: []
-  actions:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: sensor.3d_printer_current_stage
-        state: idle
-      sequence:
-      - action: light.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: light.3d_printer_chamber_light
-      - action: switch.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.3d_printer_enable_camera
-      alias: If Idle, turn off light and camera
-    - conditions:
-      - condition: not
-        conditions:
-        - condition: state
-          entity_id: sensor.3d_printer_current_stage
-          state: idle
-      sequence:
-      - action: light.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id: light.3d_printer_chamber_light
-      - action: switch.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.3d_printer_enable_camera
-      alias: If not idle, turn on light and camera
-  mode: single
 - id: set_meter_peak_and_off_peak_times
   alias: Set meter peak and off-peak times
   description: ''
@@ -2389,6 +2330,10 @@
     data: {}
     target:
       entity_id: scene.goodnight
+    enabled: false
+  - action: script.goodnight
+    metadata: {}
+    data: {}
   mode: single
 - id: '1751493960970'
   alias: Meat thermometer reached goal temperature
@@ -5700,21 +5645,6 @@
     target:
       entity_id: button.openevse_restart_evse
   mode: single
-- id: '1759346538817'
-  alias: Reload LG integration every hour
-  description: This is to force the update of energy sensors.
-  triggers:
-  - trigger: time_pattern
-    minutes: '59'
-  conditions: []
-  actions:
-  - action: homeassistant.reload_config_entry
-    metadata: {}
-    data:
-      entry_id: 01K6GFCYH9X2EEE95BT27A3A27
-    target:
-      device_id: b9b2fcff576453df69fb5cb70e0043b7
-  mode: single
 - id: '1759772741153'
   alias: Notify - Rock tumbler off for 1 hour
   description: ''
@@ -5842,19 +5772,6 @@
       entity_id: input_select.home_mode
     data:
       option: Wind Up
-  mode: single
-- id: '1766421853905'
-  alias: Temp - Reload ecobee every 2 hours
-  description: ''
-  triggers:
-  - trigger: time_pattern
-    hours: /2
-  conditions: []
-  actions:
-  - action: homeassistant.reload_config_entry
-    metadata: {}
-    data:
-      entry_id: ff0f1ddf072f54ca776a985661601475
   mode: single
 - id: '1770823895339'
   alias: Reset 3D Printer Filter Hours when button pressed

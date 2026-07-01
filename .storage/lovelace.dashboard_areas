@@ -1459,10 +1459,13 @@
                       "entity": "script.dim_bedroom_lights"
                     },
                     {
-                      "entity": "script.goodnight"
+                      "entity": "script.wind_down_nicole"
                     },
                     {
-                      "entity": "script.wind_down_nicole"
+                      "entity": "script.goodnight_nicole"
+                    },
+                    {
+                      "entity": "script.goodnight"
                     },
                     {
                       "entity": "script.good_morning"
@@ -1549,6 +1552,14 @@
               "show_name": false,
               "show_state": true,
               "show_icon": true,
+              "entity": "sensor.bedroom_climate_bedroom_co2_value",
+              "color": "light-grey"
+            },
+            {
+              "type": "entity",
+              "show_name": false,
+              "show_state": true,
+              "show_icon": true,
               "entity": "binary_sensor.bedroom_ecobee_sensor_occupancy"
             },
             {
@@ -1599,10 +1610,7 @@
                   "state_content": [
                     "state",
                     "last_updated"
-                  ],
-                  "grid_options": {
-                    "columns": "full"
-                  }
+                  ]
                 },
                 {
                   "features": [
@@ -1618,10 +1626,7 @@
                   "state_content": [
                     "state",
                     "last_updated"
-                  ],
-                  "grid_options": {
-                    "columns": "full"
-                  }
+                  ]
                 }
               ]
             },
@@ -4211,22 +4216,6 @@
                 {
                   "features": [
                     {
-                      "type": "toggle"
-                    }
-                  ],
-                  "type": "tile",
-                  "entity": "switch.hair_straightener",
-                  "features_position": "bottom",
-                  "vertical": false,
-                  "icon": "",
-                  "state_content": [
-                    "state",
-                    "last_updated"
-                  ]
-                },
-                {
-                  "features": [
-                    {
                       "type": "light-brightness"
                     }
                   ],
@@ -4252,6 +4241,22 @@
                   "features_position": "bottom",
                   "vertical": false,
                   "name": "Exhaust Fan",
+                  "state_content": [
+                    "state",
+                    "last_updated"
+                  ]
+                },
+                {
+                  "features": [
+                    {
+                      "type": "toggle"
+                    }
+                  ],
+                  "type": "tile",
+                  "entity": "switch.hair_straightener",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "icon": "",
                   "state_content": [
                     "state",
                     "last_updated"
@@ -5565,6 +5570,12 @@
                       "entity": "script.dim_bedroom_lights"
                     },
                     {
+                      "entity": "script.wind_down_nicole"
+                    },
+                    {
+                      "entity": "script.goodnight_nicole"
+                    },
+                    {
                       "entity": "script.good_morning"
                     },
                     {
@@ -5572,9 +5583,6 @@
                     },
                     {
                       "entity": "script.goodnight"
-                    },
-                    {
-                      "entity": "script.wind_down_nicole"
                     }
                   ]
                 }
@@ -5716,6 +5724,35 @@
                 {
                   "features": [
                     {
+                      "type": "light-brightness"
+                    }
+                  ],
+                  "type": "tile",
+                  "entity": "light.raccoon_lamp",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "icon": "mdi:lamp"
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.nicole_office_left_bookshelf_plant_lights",
+                  "name": "Bookshelf Plant Lights",
+                  "icon": "",
+                  "state_content": [
+                    "state",
+                    "last_updated"
+                  ],
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "toggle"
+                    }
+                  ],
+                  "features_position": "bottom"
+                },
+                {
+                  "features": [
+                    {
                       "type": "toggle"
                     }
                   ],
@@ -5729,35 +5766,6 @@
                     "last_updated"
                   ],
                   "icon": "mdi:floor-lamp"
-                },
-                {
-                  "features": [
-                    {
-                      "type": "light-brightness"
-                    }
-                  ],
-                  "type": "tile",
-                  "entity": "light.raccoon_lamp",
-                  "features_position": "bottom",
-                  "vertical": false,
-                  "icon": "mdi:lamp"
-                },
-                {
-                  "type": "tile",
-                  "entity": "light.nicole_office_plant_lights",
-                  "name": "Plant Lights",
-                  "icon": "",
-                  "state_content": [
-                    "state",
-                    "last_updated"
-                  ],
-                  "vertical": false,
-                  "features": [
-                    {
-                      "type": "toggle"
-                    }
-                  ],
-                  "features_position": "bottom"
                 },
                 {
                   "features": [
@@ -5784,9 +5792,6 @@
                 {
                   "type": "entities",
                   "entities": [
-                    {
-                      "entity": "automation.3d_printer_idle_mode"
-                    },
                     {
                       "entity": "automation.dehumidifier_turn_off_when_windows_open"
                     },
@@ -5820,20 +5825,14 @@
                   "entity": "binary_sensor.nicole_office_closet_door",
                   "name": "Closet Door",
                   "features_position": "bottom",
-                  "vertical": false,
-                  "grid_options": {
-                    "columns": "full"
-                  }
+                  "vertical": false
                 },
                 {
                   "type": "tile",
                   "entity": "binary_sensor.nicole_office_window",
                   "name": "Window",
                   "features_position": "bottom",
-                  "vertical": false,
-                  "grid_options": {
-                    "columns": "full"
-                  }
+                  "vertical": false
                 },
                 {
                   "type": "heading",
@@ -5842,11 +5841,30 @@
                 },
                 {
                   "type": "tile",
-                  "grid_options": {
-                    "columns": "full"
-                  },
                   "entity": "switch.nicole_desk",
                   "name": "Desk",
+                  "state_content": [
+                    "state",
+                    "last_updated"
+                  ],
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "toggle"
+                    }
+                  ],
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "rows": "auto"
+                  }
+                },
+                {
+                  "type": "tile",
+                  "grid_options": {
+                    "rows": "auto"
+                  },
+                  "entity": "switch.nicole_office_air_purifier",
+                  "name": "Air Purifier",
                   "state_content": [
                     "state",
                     "last_updated"
@@ -5902,9 +5920,6 @@
                   ],
                   "icon_tap_action": {
                     "action": "more-info"
-                  },
-                  "grid_options": {
-                    "columns": "full"
                   }
                 },
                 {
@@ -5919,9 +5934,6 @@
                   ],
                   "icon_tap_action": {
                     "action": "more-info"
-                  },
-                  "grid_options": {
-                    "columns": "full"
                   }
                 },
                 {
@@ -5936,9 +5948,6 @@
                   ],
                   "icon_tap_action": {
                     "action": "more-info"
-                  },
-                  "grid_options": {
-                    "columns": "full"
                   }
                 }
               ]
@@ -7227,10 +7236,7 @@
                   "state_content": [
                     "state",
                     "last_updated"
-                  ],
-                  "grid_options": {
-                    "columns": "full"
-                  }
+                  ]
                 },
                 {
                   "features": [
@@ -7246,10 +7252,7 @@
                   "state_content": [
                     "state",
                     "last_updated"
-                  ],
-                  "grid_options": {
-                    "columns": "full"
-                  }
+                  ]
                 },
                 {
                   "type": "heading",
