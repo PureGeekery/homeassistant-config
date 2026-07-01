@@ -28,28 +28,6 @@
                   "type": "custom:simple-plant-card",
                   "device": "e0255719fa7adc1fcd1eda8e3187b495",
                   "show_fertilization": true
-                },
-                {
-                  "type": "custom:auto-entities",
-                  "card": {
-                    "type": "entities",
-                    "title": "Tree Status"
-                  },
-                  "filter": {
-                    "include": [
-                      {
-                        "options": {},
-                        "entity_id": "sensor.*_soil_moisture",
-                        "state": "< 40",
-                        "sort": {
-                          "method": "state",
-                          "numeric": true
-                        }
-                      }
-                    ],
-                    "exclude": []
-                  },
-                  "show_empty": false
                 }
               ],
               "column_span": 4

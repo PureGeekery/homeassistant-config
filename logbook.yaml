@@ -3,13 +3,12 @@ exclude:
     - automation #the results of the automation are logged, we don't need the automation itself
   entity_globs:
     - group.*_lights # Light Groups
-    - binary_sensor.omv_*_service # OMV
     - sensor.*_last_seen
     - sensor.*_node_status # Zwave
+    - sensor.birdnet_go* # Birdnet
     - sensor.replay_* # Replay Sensors
     - binary_sensor.*motion*
     - binary_sensor.*_occupancy
     # Shelly
     - binary_sensor.*overheating
     - binary_sensor.*_overpowering
-

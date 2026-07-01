@@ -39,5 +39,6 @@ logger:
     homeassistant.components.openevse: error
     homeassistant.components.python_script: warning
     homeassistant.components.sensor.recorder: error
+    homeassistant.components.yamaha_musiccast.coordinator: fatal
     roborock.data.code_mappings: error
     zigpy.application: error

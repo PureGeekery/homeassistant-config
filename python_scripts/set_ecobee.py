@@ -20,7 +20,10 @@ is_night = (hass.states.get("binary_sensor.night")).state
 
 # Set thermostat mode based on forecasted high temperature.
 def setOperationMode():
-  if today_high > 70 and window_status == "off":
+  if window_status == "on":
+    logger.info("Windows are open. Setting mode to off.")
+    operation_mode = "off"
+  elif today_high > 70 and window_status == "off":
     logger.info(f"Today's high: {today_high}. Setting mode to cool.")
     operation_mode = "cool"
   elif today_high > 55 and today_high <= 70 and window_status == "off":
@@ -29,9 +32,6 @@ def setOperationMode():
   elif today_high <= 55 and window_status == "off":
     logger.info(f"Today's high: {today_high}. Setting mode to heat.")
     operation_mode = "heat"
-  elif window_status == "on":
-    logger.info("Windows are open. Setting mode to off.")
-    operation_mode = "off"
   else:
     logger.error(f"Temperature {today_high} is out of range.")
 

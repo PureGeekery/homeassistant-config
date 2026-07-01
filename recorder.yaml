@@ -7,6 +7,7 @@ exclude:
     - number
     - siren
     - update
+    - zone
   entity_globs:
     # 3D Printer Entities
     - binary_sensor.3d_printer*
