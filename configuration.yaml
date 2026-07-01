@@ -32,6 +32,7 @@ utility_meter: !include utility_meters.yaml
 logger:
   default: warning
   logs:
+    custom_components.bedjet.pybedjet: error
     custom_components.simple_plant: error
     homeassistant.components.apple_tv: fatal
     homeassistant.components.automation.climate_workshop_hvac: error
