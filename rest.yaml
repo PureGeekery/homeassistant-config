@@ -5,22 +5,37 @@
   scan_interval: 3600
   sensor:
     - name: Mealie Dinner Recipe ID
-      value_template: "{{ value_json[0]['recipe']['id'] }}"
+      value_template: >
+        {% set response = (value_json) %}
+        {% if response != [] %}
+          {% set recipe = (value_json[0]['recipe']) %}
+          {% if recipe != none %}
+            {{ value_json[0]['recipe']['id'] }}
+          {% else %}
+            None
+          {% endif %}
+        {% else %}
+          No Plan
+        {% endif %}
       icon: mdi:identifier
-      force_update: true
       unique_id: mealie_dinner_recipe_id
     - name: Mealie Dinner Recipe Name
-      value_template: "{{ value_json[0]['recipe']['name'] }}"
+      value_template: >
+        {% set recipe = states('sensor.mealie_dinner_recipe_id') %}
+        {% if recipe == 'None' %}
+          {{ value_json[0].title }}
+        {% elif recipe == 'No Plan' %}
+          No Plan
+        {% else %}
+          {{ value_json[0]['recipe']['name'] }}
+        {% endif %}
       icon: mdi:silverware-fork-knife
-      force_update: true
       unique_id: mealie_dinner_recipe_name
     - name: Mealie Recipe Image ID
-      value_template: "{{ value_json[0]['recipe']['image'] }}"
+      value_template: >
+        {% set recipe = states('sensor.mealie_dinner_recipe_id') %}
+        {% if recipe != 'None' and recipe != 'No Plan' %}
+          {{ value_json[0]['recipe']['image'] }}
+        {% endif %}
       icon: mdi:identifier
-      force_update: true
-      unique_id: mealie_recipe_image_id
-    - name: Mealie No Recipe Dinner Name
-      value_template: "{{ value_json[0].title }}"
-      icon: mdi:silverware-fork-knife
-      force_update: true
-      unique_id: mealie_no_recipe_dinner_name
+      unique_id: mealie_recipe_image_id 

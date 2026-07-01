@@ -256,7 +256,7 @@
                         {
                           "condition": "state",
                           "entity": "sensor.mealie_dinner_recipe_id",
-                          "state_not": ""
+                          "state_not": "None"
                         }
                       ]
                     }
@@ -266,7 +266,7 @@
                     "show_name": true,
                     "camera_view": "auto",
                     "type": "picture-entity",
-                    "entity": "sensor.tonight_dinner_name",
+                    "entity": "sensor.mealie_dinner_recipe_name",
                     "camera_image": "camera.dinner_recipe_image",
                     "name": "Tonight's Dinner",
                     "card_mod": {
@@ -283,11 +283,11 @@
                         {
                           "condition": "state",
                           "entity": "sensor.mealie_dinner_recipe_id",
-                          "state": ""
+                          "state": "None"
                         },
                         {
                           "condition": "state",
-                          "entity": "sensor.tonight_dinner_name",
+                          "entity": "sensor.mealie_dinner_recipe_name",
                           "state": "No Plan"
                         }
                       ]
@@ -295,7 +295,7 @@
                   ],
                   "card": {
                     "type": "entity",
-                    "entity": "sensor.tonight_dinner_name",
+                    "entity": "sensor.mealie_dinner_recipe_name",
                     "name": "Tonight's Dinner"
                   }
                 },
@@ -2012,6 +2012,18 @@
                     "style": "overlay",
                     "position": "bottom"
                   }
+                },
+                {
+                  "type": "custom:advanced-camera-card",
+                  "cameras": [
+                    {
+                      "camera_entity": "camera.trackmix"
+                    }
+                  ],
+                  "status_bar": {
+                    "style": "overlay",
+                    "position": "bottom"
+                  }
                 }
               ]
             },
@@ -2140,7 +2152,7 @@
                       "type": "divider"
                     },
                     {
-                      "entity": "binary_sensor.den",
+                      "entity": "binary_sensor.den_motion_group",
                       "name": "Den"
                     },
                     {
@@ -2398,7 +2410,8 @@
                       }
                     ],
                     "exclude": []
-                  }
+                  },
+                  "show_empty": false
                 },
                 {
                   "type": "tile",
@@ -2622,7 +2635,7 @@
                         {
                           "condition": "state",
                           "entity": "sensor.grill_buddy_meat_thermometer_probe_1",
-                          "state_not": "0"
+                          "state_not": "0.0"
                         }
                       ]
                     }
@@ -2667,7 +2680,7 @@
                         {
                           "condition": "state",
                           "entity": "sensor.grill_buddy_meat_thermometer_probe_2",
-                          "state_not": "0"
+                          "state_not": "0.0"
                         }
                       ]
                     }
@@ -2711,8 +2724,8 @@
                         },
                         {
                           "condition": "state",
-                          "entity": "sensor.meat_thermometer_temperature_probe_3",
-                          "state_not": "0"
+                          "entity": "sensor.grill_buddy_meat_thermometer_probe_3",
+                          "state_not": "0.0"
                         }
                       ]
                     }
@@ -2757,7 +2770,7 @@
                         {
                           "condition": "state",
                           "entity": "sensor.grill_buddy_meat_thermometer_probe_4",
-                          "state_not": "0"
+                          "state_not": "0.0"
                         }
                       ]
                     }
@@ -2799,7 +2812,7 @@
                             {
                               "condition": "state",
                               "entity": "sensor.mealie_dinner_recipe_id",
-                              "state_not": ""
+                              "state_not": "None"
                             }
                           ]
                         }
@@ -2809,7 +2822,7 @@
                         "show_name": true,
                         "camera_view": "auto",
                         "type": "picture-entity",
-                        "entity": "sensor.tonight_dinner_name",
+                        "entity": "sensor.mealie_dinner_recipe_name",
                         "camera_image": "camera.dinner_recipe_image",
                         "name": "Tonight's Dinner",
                         "card_mod": {
@@ -2826,11 +2839,11 @@
                             {
                               "condition": "state",
                               "entity": "sensor.mealie_dinner_recipe_id",
-                              "state": ""
+                              "state": "None"
                             },
                             {
                               "condition": "state",
-                              "entity": "sensor.tonight_dinner_name",
+                              "entity": "sensor.mealie_dinner_recipe_name",
                               "state": "No Plan"
                             }
                           ]
@@ -2838,7 +2851,7 @@
                       ],
                       "card": {
                         "type": "entity",
-                        "entity": "sensor.tonight_dinner_name",
+                        "entity": "sensor.mealie_dinner_recipe_name",
                         "name": "Tonight's Dinner"
                       }
                     }

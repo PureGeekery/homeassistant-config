@@ -1104,16 +1104,16 @@
                 },
                 {
                   "type": "tile",
-                  "entity": "binary_sensor.basement",
-                  "features_position": "bottom",
+                  "entity": "binary_sensor.basement_motion",
+                  "state_content": [
+                    "state",
+                    "last_updated"
+                  ],
                   "vertical": false,
                   "icon_tap_action": {
                     "action": "more-info"
                   },
-                  "state_content": [
-                    "state",
-                    "last_updated"
-                  ]
+                  "features_position": "bottom"
                 },
                 {
                   "type": "tile",
@@ -1954,17 +1954,17 @@
                 },
                 {
                   "type": "tile",
-                  "entity": "binary_sensor.den",
-                  "features_position": "bottom",
-                  "vertical": false,
+                  "entity": "binary_sensor.den_motion_sensor",
                   "name": "Den",
                   "state_content": [
                     "state",
                     "last_updated"
                   ],
+                  "vertical": false,
                   "icon_tap_action": {
                     "action": "more-info"
-                  }
+                  },
+                  "features_position": "bottom"
                 },
                 {
                   "type": "tile",
@@ -1995,6 +1995,20 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "type": "tile",
+                  "entity": "binary_sensor.fireplace_motion_sensor",
+                  "name": "Fireplace",
+                  "state_content": [
+                    "state",
+                    "last_updated"
+                  ],
+                  "vertical": false,
+                  "icon_tap_action": {
+                    "action": "more-info"
+                  },
+                  "features_position": "bottom"
                 }
               ]
             },
@@ -4842,7 +4856,7 @@
                             {
                               "condition": "state",
                               "entity": "sensor.mealie_dinner_recipe_id",
-                              "state_not": ""
+                              "state_not": "None"
                             }
                           ]
                         }
@@ -4852,7 +4866,7 @@
                         "show_name": true,
                         "camera_view": "auto",
                         "type": "picture-entity",
-                        "entity": "sensor.tonight_dinner_name",
+                        "entity": "sensor.mealie_dinner_recipe_name",
                         "camera_image": "camera.dinner_recipe_image",
                         "name": "Tonight's Dinner",
                         "card_mod": {
@@ -4873,7 +4887,7 @@
                             },
                             {
                               "condition": "state",
-                              "entity": "sensor.tonight_dinner_name",
+                              "entity": "sensor.mealie_dinner_recipe_name",
                               "state": "No Plan"
                             }
                           ]
@@ -4881,7 +4895,7 @@
                       ],
                       "card": {
                         "type": "entity",
-                        "entity": "sensor.tonight_dinner_name",
+                        "entity": "sensor.mealie_dinner_recipe_name",
                         "name": "Tonight's Dinner"
                       }
                     }
