@@ -72,14 +72,120 @@ wind_down_nicole:
 goodnight:
   alias: Goodnight
   sequence:
-  - action: input_select.select_option
-    continue_on_error: true
-    metadata: {}
-    data:
-      option: Sleep
-    target:
-      entity_id: input_select.home_mode
-    enabled: true
+  - parallel:
+    - action: input_select.select_option
+      continue_on_error: true
+      metadata: {}
+      data:
+        option: Sleep
+      target:
+        entity_id: input_select.home_mode
+      enabled: true
+    - action: light.turn_off
+      metadata: {}
+      target:
+        floor_id:
+        - upstairs
+        - main_floor
+        - basement
+        area_id:
+        - workshop
+        - den
+        - family_room
+        entity_id:
+        - light.family_room_deck_light_back
+        - light.family_room_deck_light_side
+        - light.grill_lights
+        - light.garage_flood_lights_west
+        - light.driveway_post_and_tree_lights
+      data: {}
+    - if:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state:
+        - 'off'
+      then:
+      - action: light.turn_off
+        metadata: {}
+        target:
+          area_id:
+          - laundry_room
+          - eric_office
+        data: {}
+      alias: Turn off Orange Bath/Eric Office only if guest mode is off
+    - action: fan.turn_on
+      metadata: {}
+      target:
+        entity_id: fan.snooz_c0_49_ef_27_a8_62
+      data:
+        percentage: 15
+    - action: fan.turn_on
+      metadata: {}
+      target:
+        entity_id:
+        - fan.master_bedroom_fan
+        - fan.family_room_fan_south
+      data:
+        percentage: 25
+    - action: fan.turn_off
+      metadata: {}
+      target:
+        entity_id: fan.blue_air_fan
+      data: {}
+    - action: lock.lock
+      metadata: {}
+      target:
+        entity_id:
+        - lock.front_door_lock
+        - lock.kitchen_door_lock
+        - lock.workshop
+      data: {}
+    - action: switch.turn_off
+      metadata: {}
+      target:
+        entity_id:
+        - switch.main_floor_media_center_plug
+        - switch.nicole_desk
+        - switch.den_media_center
+        - switch.workshop_battery_wall
+        - switch.family_room_media_center_top
+        - switch.klipsch_speakers
+        - switch.wled_lights
+        - switch.eric_desk
+      data: {}
+    - action: button.press
+      metadata: {}
+      target:
+        entity_id: button.oven_stop
+      data: {}
+      alias: Turn off Oven
+    - action: cover.close_cover
+      metadata: {}
+      target:
+        entity_id: cover.garage_door
+      data: {}
+    - if:
+      - condition: state
+        entity_id: person.nicole
+        state:
+        - home
+      then:
+      - action: input_boolean.turn_on
+        metadata: {}
+        target:
+          entity_id: input_boolean.nicole_asleep
+        data: {}
+    - if:
+      - condition: state
+        entity_id: person.eric
+        state:
+        - home
+      then:
+      - action: input_boolean.turn_on
+        metadata: {}
+        target:
+          entity_id: input_boolean.eric_asleep
+        data: {}
   description: ''
   icon: mdi:weather-night
 good_morning:
@@ -219,6 +325,11 @@ goodbye:
     data: {}
     target:
       entity_id: fan.blue_air_fan
+  - action: button.press
+    metadata: {}
+    target:
+      entity_id: button.oven_stop
+    data: {}
   description: ''
   icon: mdi:run
 watch_tv_downstairs:
@@ -419,6 +530,41 @@ holiday_lighting:
   sequence:
   - choose:
     - conditions:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: calendar.holidays_in_united_states
+          state: 'on'
+        - condition: or
+          conditions:
+          - condition: state
+            entity_id: calendar.holidays_in_united_states
+            attribute: message
+            state:
+            - Independence Day
+          - condition: state
+            entity_id: calendar.holidays_in_united_states
+            attribute: message
+            state:
+            - Independence Day (substitute)
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.wled_lights
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 30
+          milliseconds: 0
+      - device_id: 8298a2b1b686ae77cf250c42d9b41b4d
+        domain: select
+        entity_id: 4f5ddc3926c19e27cee8f875c09a16b5
+        type: select_option
+        option: Fourth of July
+      alias: If it's the Fourth of July
+    - conditions:
       - condition: template
         value_template: '{{(now().month == 10)}}'
         alias: If it's October...
@@ -576,7 +722,6 @@ energy_saving_mode:
         target:
           entity_id:
           - fan.family_room_fan_south
-          - fan.master_bedroom_fan
           - fan.blue_air_fan
       - action: climate.turn_off
         metadata: {}
@@ -786,19 +931,14 @@ blue_air_fan_control:
   sequence:
   - choose:
     - conditions:
-      - condition: and
+      - alias: If Ecobee is heating/cooling while we're home
+        condition: and
         conditions:
-        - condition: or
-          conditions:
-          - condition: state
-            entity_id: climate.ecobee_thermostat
-            attribute: hvac_action
-            state: cooling
-          - condition: state
-            entity_id: climate.ecobee_thermostat
-            attribute: hvac_action
-            state: heating
-          alias: If Ecobee is Heating or Cooling
+        - condition: state
+          entity_id: climate.ecobee_thermostat
+          state:
+          - 'on'
+          attribute: fan
         - condition: not
           conditions:
           - condition: state
@@ -808,7 +948,6 @@ blue_air_fan_control:
             entity_id: input_select.home_mode
             state: Away
           alias: If Home Mode is not Sleep or Away
-        alias: If Ecobee is heating/cooling while we're home
       sequence:
       - action: fan.turn_on
         metadata: {}
@@ -818,8 +957,9 @@ blue_air_fan_control:
     - conditions:
       - condition: state
         entity_id: climate.ecobee_thermostat
-        attribute: hvac_action
-        state: idle
+        state:
+        - 'off'
+        attribute: fan
       sequence:
       - action: fan.turn_off
         metadata: {}
@@ -868,12 +1008,9 @@ set_home_mode_to_sleep_when_everyone_asleep_murphy_bed_open_guest_mode_off:
         state:
         - 'off'
     then:
-    - action: input_select.select_option
+    - action: script.goodnight
       metadata: {}
-      target:
-        entity_id: input_select.home_mode
-      data:
-        option: Sleep
+      data: {}
   alias: Set Home Mode to Sleep when everyone asleep, Murphy Bed open, Guest Mode
     off
   description: ''

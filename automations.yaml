@@ -605,10 +605,11 @@
   triggers:
   - entity_id:
     - sensor.dishwasher_operation_state
-    to: Finished
+    to:
+    - Finished
     for:
       hours: 0
-      minutes: 1
+      minutes: 0
       seconds: 0
     trigger: state
   conditions: []
@@ -2292,48 +2293,6 @@
     data: {}
     target:
       entity_id: switch.bambu_p1s
-  mode: single
-- id: '1749831456778'
-  alias: When Home Mode is Sleep run Goodnight
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - input_select.home_mode
-    to: Sleep
-  conditions: []
-  actions:
-  - if:
-    - condition: state
-      entity_id: person.nicole
-      state:
-      - home
-    then:
-    - action: input_boolean.turn_on
-      metadata: {}
-      data: {}
-      target:
-        entity_id: input_boolean.nicole_asleep
-  - if:
-    - condition: state
-      entity_id: person.eric
-      state:
-      - home
-    then:
-    - action: input_boolean.turn_on
-      metadata: {}
-      data: {}
-      target:
-        entity_id: input_boolean.eric_asleep
-  - action: scene.turn_on
-    metadata: {}
-    data: {}
-    target:
-      entity_id: scene.goodnight
-    enabled: false
-  - action: script.goodnight
-    metadata: {}
-    data: {}
   mode: single
 - id: '1751493960970'
   alias: Meat thermometer reached goal temperature

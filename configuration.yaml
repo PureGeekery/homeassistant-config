@@ -25,13 +25,13 @@ recorder: !include recorder.yaml
 rest: !include rest.yaml
 sensor: !include sensors.yaml
 script: !include scripts.yaml
-scene: !include scenes.yaml
 utility_meter: !include utility_meters.yaml
 
 # Custom Log Levels
 logger:
   default: warning
   logs:
+    custom_components.openevse: error
     custom_components.bedjet.pybedjet: error
     custom_components.simple_plant: error
     homeassistant.components.apple_tv: fatal
