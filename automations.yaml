@@ -104,38 +104,57 @@
   mode: parallel
   max: 10
 - id: watch_tv_after_sunset
-  alias: Scene - Trigger watch TV when Remote goes from PowerOff after sunset
+  alias: Scene - Trigger watch TV when Remote goes from PowerOff
   description: ''
   triggers:
   - trigger: state
     entity_id:
-    - media_player.downstairs_musiccast
-    to: playing
-  conditions:
-  - condition: time
-    after: '19:00:00'
+    - remote.family_room_remote
+    to:
+    - 'on'
+  conditions: []
   actions:
-  - action: script.watch_tv_downstairs
-    metadata: {}
-    data: {}
+  - parallel:
+    - action: switch.turn_on
+      metadata: {}
+      target:
+        entity_id:
+        - switch.family_room_sub
+        - switch.family_room_media_center_top
+      data: {}
   - if:
-    - condition: and
+    - condition: or
       conditions:
+      - condition: time
+        after: '19:00:00'
       - condition: state
-        entity_id: binary_sensor.kitchen_motion_sensor_group
-        state: 'off'
-        for:
-          hours: 0
-          minutes: 1
-          seconds: 0
-      - condition: state
-        entity_id: input_boolean.nicole_asleep
+        entity_id: binary_sensor.pixel_post_light_on
         state:
-        - 'off'
+        - 'on'
+      alias: If it's after 7:00PM or it's dark outside dim the downstairs lights
     then:
-    - action: script.watch_tv_main_floor
+    - action: script.watch_tv_downstairs
       metadata: {}
       data: {}
+    - if:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.kitchen_motion_sensor_group
+          state: 'off'
+          for:
+            hours: 0
+            minutes: 1
+            seconds: 0
+        - condition: state
+          entity_id: input_boolean.nicole_asleep
+          state:
+          - 'off'
+      then:
+      - action: script.watch_tv_main_floor
+        metadata: {}
+        data: {}
+      alias: If no one is in the kitchen, dim the upstairs lights too
   mode: single
 - id: basement_lights_single_switch
   alias: Basement - Control lights with single switch
@@ -2564,38 +2583,6 @@
     metadata: {}
     data: {}
   mode: single
-- id: '1756480308642'
-  alias: Turn on Family Room Sub with Remote
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - remote.family_room_remote
-    from:
-  conditions: []
-  actions:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: remote.family_room_remote
-        state: 'off'
-      sequence:
-      - action: switch.turn_off
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.family_room_sub
-    - conditions:
-      - condition: state
-        entity_id: remote.family_room_remote
-        state: 'on'
-      sequence:
-      - action: switch.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id: switch.family_room_sub
-  mode: single
 - id: '1758127878593'
   alias: Set plant watering frequency by month
   description: ''
@@ -4103,7 +4090,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '14'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_african_mask_plant
@@ -4112,7 +4099,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '18'
+          value: '13'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_short_leaved_aloe
@@ -4121,7 +4108,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_arrowhead_plant
       - alias: Set Begonia
@@ -4135,7 +4122,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '8'
+          value: '6'
         enabled: false
       - alias: Set Cacti
         action: number.set_value
@@ -4158,7 +4145,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '2'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_corkscrew_croton
@@ -4167,7 +4154,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '8'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_striped_dracaena
@@ -4177,7 +4164,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '6'
+          value: '4'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_colorama_dragon_tree
@@ -4186,7 +4173,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '6'
+          value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_fiddle_leaf_fig
       - alias: Set Flapjack Plants
@@ -4200,14 +4187,21 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '1'
+          value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_monstera
+      - alias: Set Nerve Plants
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '2'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
       - alias: Set Moonstones
         action: number.set_value
         metadata: {}
         data:
-          value: '17'
+          value: '10'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_moonstones
@@ -4216,13 +4210,13 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '5'
         enabled: false
       - alias: Set Peperomia
         action: number.set_value
         metadata: {}
         data:
-          value: '10'
+          value: '8'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
@@ -4231,7 +4225,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '6'
         enabled: false
       - alias: Set Pothos
         action: number.set_value
@@ -4248,7 +4242,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_prayer_plant
@@ -4257,14 +4251,14 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '6'
+          value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_purple_passion_plant
       - alias: Set Purple Spider Worts
         action: number.set_value
         metadata: {}
         data:
-          value: '4'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_purple_heart_spider_wort_1
@@ -4273,7 +4267,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '5'
+          value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
       - alias: Set Sedum
@@ -4287,14 +4281,14 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '2'
+          value: '3'
         target:
           entity_id: number.simple_plant_days_between_waterings_silver_inch_plant
       - alias: Set Snake Plants
         action: number.set_value
         metadata: {}
         data:
-          value: '16'
+          value: '13'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_black_coral_snake_plant
@@ -4312,35 +4306,28 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '15'
+          value: '12'
         target:
           entity_id: number.simple_plant_days_between_waterings_string_of_pearls
       - alias: Set Umbrella Trees
         action: number.set_value
         metadata: {}
         data:
-          value: '6'
+          value: '4'
         target:
           entity_id: number.simple_plant_days_between_waterings_umbrella_tree
-      - alias: Set Nerve Plants
-        action: number.set_value
-        metadata: {}
-        data:
-          value: '3'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
       - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
-          value: '7'
+          value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
         data:
-          value: '15'
+          value: '12'
         target:
           entity_id: number.simple_plant_days_between_waterings_zz_plant
     - conditions:
