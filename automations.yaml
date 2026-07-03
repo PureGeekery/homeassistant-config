@@ -493,29 +493,6 @@
         target:
           entity_id: light.kitchenette_led_strip
   mode: single
-- id: notify_oven_on
-  alias: Notification - Everyone left or is sleeping but oven is on.
-  description: ''
-  triggers:
-  - entity_id:
-    - group.people
-    to: away
-    trigger: state
-  - entity_id:
-    - input_select.home_mode
-    to: Sleep
-    trigger: state
-  conditions:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: sensor.oven_oven_machine_state
-      state: ready
-  actions:
-  - data:
-      message: Oven is on!
-    action: notify.notify_nicole_and_eric
-  mode: single
 - id: set_dte_peak_month
   alias: Set DTE Peak Month
   description: ''
@@ -5768,4 +5745,208 @@
         target:
           entity_id: light.living_room_lamp
         data: {}
+  mode: single
+- id: '1783095169277'
+  alias: Notify Nicole on NAS replication error.
+  description: ''
+  triggers:
+  - trigger: template
+    value_template: '{{ states(''sensor.truenas_replication_primary_backup_of_primary'')
+      not in [''SUCCESS'', ''RUNNING''] }}'
+    alias: TrueNAS Replication failure
+  conditions: []
+  actions:
+  - action: notify.mobile_app_nicole_iphone
+    metadata: {}
+    data:
+      message: TrueNAS replication job failure.
+  mode: single
+- id: '1783095457179'
+  alias: Notify Nicole on NAS drive issue.
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.truenas_system_backup_of_primary_healthy
+    to:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.truenas_system_boot_pool_healthy
+    to:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.truenas_system_primary_healthy
+    to:
+    - 'off'
+  conditions: []
+  actions:
+  - action: notify.mobile_app_nicole_iphone
+    metadata: {}
+    data:
+      message: NAS drive issue on {{ trigger.to_state.attributes.friendly_name }}.
+      data:
+        url: /config/devices/device/b01fe981384d069e63744d71cf2427d2
+  mode: single
+- id: '1783096186028'
+  alias: Notify on Robot Maintenance Needed.
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_downstairs_clean_sensors
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_downstairs_replace_filter
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_downstairs_replace_main_brush
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_downstairs_replace_side_brush
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_main_floor_clean_sensors
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_main_floor_dock_clean_mop_tray
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_main_floor_replace_filter
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_main_floor_replace_main_brush
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_main_floor_replace_side_brush
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.den_roborock_downstairs_water_shortage
+    to:
+    - 'on'
+    from:
+    - 'off'
+  - trigger: state
+    entity_id:
+    - binary_sensor.roborock_main_floor_water_shortage
+    to:
+    - 'on'
+    from:
+    - 'off'
+  conditions: []
+  actions:
+  - alias: Notify Eric if Home
+    if:
+    - condition: state
+      entity_id: person.eric
+      state:
+      - home
+    then:
+    - action: notify.mobile_app_eric_iphone
+      metadata: {}
+      data:
+        message: '{{ trigger.to_state.attributes.friendly_name }}'
+        title: Roborock needs maintenance.
+        data:
+          url: /lovelace/chores
+  - alias: Notify Nicole if Home
+    if:
+    - condition: state
+      entity_id: person.nicole
+      state:
+      - home
+    then:
+    - action: notify.mobile_app_nicole_iphone
+      metadata: {}
+      data:
+        message: '{{ trigger.to_state.attributes.friendly_name }}'
+        title: Roborock needs maintenance.
+        data:
+          url: /lovelace/chores
+  mode: single
+- id: '1783096759076'
+  alias: Notify on Vacuum Error
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - sensor.roborock_downstairs_vacuum_error
+    from:
+    - none
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 5
+  - trigger: state
+    entity_id:
+    - sensor.roborock_main_floor_vacuum_error
+    from:
+    - none
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 5
+  conditions: []
+  actions:
+  - alias: Notify Nicole if Home
+    if:
+    - condition: state
+      entity_id: person.nicole
+      state:
+      - home
+    then:
+    - action: notify.mobile_app_nicole_iphone
+      metadata: {}
+      data:
+        message: '{{ trigger.to_state.attributes.friendly_name }} has an error of
+          {{ state_translated(trigger.to_state.entity_id)}}'
+  - alias: Notify Eric if Home
+    if:
+    - condition: state
+      entity_id: person.eric
+      state:
+      - home
+    then:
+    - action: notify.mobile_app_eric_iphone
+      metadata: {}
+      data:
+        message: '{{ trigger.to_state.attributes.friendly_name }} has an error of
+          {{ state_translated(trigger.to_state.entity_id)}}'
   mode: single
