@@ -13,9 +13,9 @@ current_forecast = hass.services.call("weather", "get_forecasts", service_data, 
 home_mode = (hass.states.get("input_select.home_mode")).state
 current_mode = (hass.states.get(thermostat)).state
 today_high = (current_forecast[weather]["forecast"][0]["temperature"])
-window_satus = (hass.states.get("binary_sensor.windows")).state
+window_satus = (hass.states.get("binary_sensor.windows_group")).state
 peak_season = (hass.states.get("input_boolean.dte_peak_season")).state
-peak_hours = (hass.states.get("schedule.dte_peak_hours")).state
+peak_hours = (hass.states.get("schedule.dte_pfeak_hours")).state
 current_month = datetime.datetime.now().month
 
 def normalOperation():

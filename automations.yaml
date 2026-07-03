@@ -625,11 +625,7 @@
   - entity_id:
     - sensor.dishwasher_operation_state
     to:
-    - Finished
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
+    - finished
     trigger: state
   conditions: []
   actions:
@@ -918,7 +914,7 @@
   - entity_id: input_select.home_mode
     trigger: state
   - entity_id:
-    - binary_sensor.windows
+    - binary_sensor.windows_group
     enabled: true
     trigger: state
   - entity_id:
@@ -1126,15 +1122,16 @@
   description: ''
   triggers:
   - entity_id:
-    - binary_sensor.utility_room_doors
+    - binary_sensor.utility_room_doors_group
     trigger: state
   conditions: []
   actions:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.utility_room_doors
-        state: 'on'
+        entity_id: binary_sensor.utility_room_doors_group
+        state:
+        - 'on'
       sequence:
       - action: light.turn_on
         metadata: {}
@@ -1143,7 +1140,7 @@
           entity_id: light.utility_room_light
     - conditions:
       - condition: state
-        entity_id: binary_sensor.utility_room_doors
+        entity_id: binary_sensor.utility_room_doors_group
         state: 'off'
       sequence:
       - action: light.turn_off
@@ -1170,15 +1167,7 @@
       hours: 0
       minutes: 0
       seconds: 30
-  conditions:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: input_select.home_mode
-      state: Sleep
-    - condition: state
-      entity_id: input_select.home_mode
-      state: Wind Down
+  conditions: []
   actions:
   - choose:
     - conditions:
@@ -1187,6 +1176,14 @@
         - condition: state
           entity_id: binary_sensor.pixel_post_light_on
           state: 'on'
+        - condition: not
+          conditions:
+          - condition: state
+            entity_id: input_select.home_mode
+            state: Sleep
+          - condition: state
+            entity_id: input_select.home_mode
+            state: Wind Down
       sequence:
       - data: {}
         action: light.turn_on
@@ -1407,14 +1404,14 @@
   description: ''
   triggers:
   - entity_id:
-    - binary_sensor.windows
+    - binary_sensor.windows_group
     trigger: state
   conditions: []
   actions:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.windows
+        entity_id: binary_sensor.windows_group
         state: 'on'
       sequence:
       - action: switch.turn_off
@@ -1437,7 +1434,7 @@
           - climate.family_room_thermostat
     - conditions:
       - condition: state
-        entity_id: binary_sensor.windows
+        entity_id: binary_sensor.windows_group
         state: 'off'
       sequence:
       - action: switch.turn_on
@@ -2466,8 +2463,9 @@
   triggers:
   - trigger: state
     entity_id:
-    - binary_sensor.living_dining_room_motion
-    to: 'off'
+    - binary_sensor.living_dining_room_motion_group
+    to:
+    - 'off'
     for:
       hours: 0
       minutes: 10

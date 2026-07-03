@@ -12,7 +12,7 @@ current_forecast = hass.services.call("weather", "get_forecasts", service_data, 
 # Get variables that impact operating mode
 home_mode = (hass.states.get("input_select.home_mode")).state
 today_high = (current_forecast[weather]["forecast"][0]["temperature"])
-window_status = (hass.states.get("binary_sensor.windows")).state
+window_status = (hass.states.get("binary_sensor.windows_group")).state
 current_mode = (hass.states.get(thermostat)).state
 guest_mode = (hass.states.get("input_boolean.guest_mode")).state
 is_dusk = (hass.states.get("binary_sensor.dusk")).state

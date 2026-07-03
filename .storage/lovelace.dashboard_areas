@@ -179,16 +179,6 @@
                 {
                   "type": "tile",
                   "entity": "light.cd_shelf_dimmer"
-                },
-                {
-                  "type": "tile",
-                  "entity": "switch.none_den_stair_landing_1",
-                  "name": "Stair Landing Den Stair Landing 1"
-                },
-                {
-                  "type": "tile",
-                  "entity": "switch.none_den_stair_landing_2",
-                  "name": "Stair Landing Den Stair Landing 2"
                 }
               ]
             },
@@ -649,14 +639,6 @@
                 {
                   "type": "tile",
                   "entity": "fan.3d_printer_cooling_fan"
-                },
-                {
-                  "type": "tile",
-                  "entity": "fan.3d_printer_aux_fan"
-                },
-                {
-                  "type": "tile",
-                  "entity": "fan.3d_printer_chamber_fan"
                 },
                 {
                   "type": "tile",
@@ -5495,7 +5477,7 @@
               "show_name": false,
               "show_state": true,
               "show_icon": true,
-              "entity": "binary_sensor.living_room_motion_sensors"
+              "entity": "binary_sensor.living_room_motion_sensor_group"
             }
           ],
           "cards": [],

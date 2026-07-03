@@ -1875,7 +1875,7 @@
                       "entity": "binary_sensor.basement_door"
                     },
                     {
-                      "entity": "binary_sensor.utility_room_doors"
+                      "entity": "binary_sensor.utility_room_doors_group"
                     },
                     {
                       "entity": "cover.garage_door"
@@ -2107,7 +2107,7 @@
                   "type": "entities",
                   "entities": [
                     {
-                      "entity": "binary_sensor.living_room_motion_sensors",
+                      "entity": "binary_sensor.living_room_motion_sensor_group",
                       "name": "Living Room"
                     },
                     {
@@ -2649,9 +2649,19 @@
                   "name": "Remaining Time",
                   "visibility": [
                     {
-                      "condition": "state",
-                      "entity": "sensor.meat_thermometer_probe_1_time_to_target",
-                      "state_not": "unavailable"
+                      "condition": "and",
+                      "conditions": [
+                        {
+                          "condition": "state",
+                          "entity": "sensor.meat_thermometer_probe_1_time_to_target",
+                          "state_not": "unavailable"
+                        },
+                        {
+                          "condition": "state",
+                          "entity": "sensor.meat_thermometer_probe_1_time_to_target",
+                          "state_not": "0"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -2694,9 +2704,19 @@
                   "name": "Remaining Time",
                   "visibility": [
                     {
-                      "condition": "state",
-                      "entity": "sensor.meat_thermometer_probe_2_time_to_target",
-                      "state_not": "unavailable"
+                      "condition": "and",
+                      "conditions": [
+                        {
+                          "condition": "state",
+                          "entity": "sensor.meat_thermometer_probe_2_time_to_target",
+                          "state_not": "unavailable"
+                        },
+                        {
+                          "condition": "state",
+                          "entity": "sensor.meat_thermometer_probe_2_time_to_target",
+                          "state_not": "0"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -2739,9 +2759,19 @@
                   "name": "Remaining Time",
                   "visibility": [
                     {
-                      "condition": "state",
-                      "entity": "sensor.meat_thermometer_probe_3_time_to_target",
-                      "state_not": "unavailable"
+                      "condition": "and",
+                      "conditions": [
+                        {
+                          "condition": "state",
+                          "entity": "sensor.meat_thermometer_probe_3_time_to_target",
+                          "state_not": "unavailable"
+                        },
+                        {
+                          "condition": "state",
+                          "entity": "sensor.meat_thermometer_probe_3_time_to_target",
+                          "state_not": "0"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -2784,9 +2814,19 @@
                   "name": "Remaining Time",
                   "visibility": [
                     {
-                      "condition": "state",
-                      "entity": "sensor.meat_thermometer_probe_4_time_to_target",
-                      "state_not": "unavailable"
+                      "condition": "and",
+                      "conditions": [
+                        {
+                          "condition": "state",
+                          "entity": "sensor.meat_thermometer_probe_4_time_to_target",
+                          "state_not": "unavailable"
+                        },
+                        {
+                          "condition": "state",
+                          "entity": "sensor.meat_thermometer_probe_4_time_to_target",
+                          "state_not": "0"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -4045,35 +4085,7 @@
                 },
                 {
                   "type": "tile",
-                  "entity": "fan.3d_printer_chamber_fan",
-                  "name": {
-                    "type": "entity"
-                  },
-                  "vertical": false,
-                  "features": [
-                    {
-                      "type": "fan-speed"
-                    }
-                  ],
-                  "features_position": "bottom"
-                },
-                {
-                  "type": "tile",
                   "entity": "fan.3d_printer_cooling_fan",
-                  "name": {
-                    "type": "entity"
-                  },
-                  "vertical": false,
-                  "features": [
-                    {
-                      "type": "fan-speed"
-                    }
-                  ],
-                  "features_position": "bottom"
-                },
-                {
-                  "type": "tile",
-                  "entity": "fan.3d_printer_aux_fan",
                   "name": {
                     "type": "entity"
                   },
