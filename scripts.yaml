@@ -23,7 +23,6 @@ wind_down_nicole:
       data: {}
       target:
         entity_id:
-        - light.nightstand_lamps
         - light.master_bedroom_closet
         - light.master_bedroom_light
         - light.stairway_dimmer
@@ -94,13 +93,9 @@ goodnight:
         - workshop
         - den
         - family_room
-        entity_id:
-        - light.family_room_deck_light_back
-        - light.family_room_deck_light_side
-        - light.grill_lights
-        - light.garage_flood_lights_west
-        - light.driveway_post_and_tree_lights
+        entity_id: light.pixel_post_light
       data: {}
+      continue_on_error: true
     - if:
       - condition: state
         entity_id: input_boolean.guest_mode
@@ -115,12 +110,14 @@ goodnight:
           - eric_office
         data: {}
       alias: Turn off Orange Bath/Eric Office only if guest mode is off
+      continue_on_error: true
     - action: fan.turn_on
       metadata: {}
       target:
         entity_id: fan.snooz_c0_49_ef_27_a8_62
       data:
         percentage: 15
+      continue_on_error: true
     - action: fan.turn_on
       metadata: {}
       target:
@@ -129,11 +126,13 @@ goodnight:
         - fan.family_room_fan_south
       data:
         percentage: 25
+      continue_on_error: true
     - action: fan.turn_off
       metadata: {}
       target:
         entity_id: fan.blue_air_fan
       data: {}
+      continue_on_error: true
     - action: lock.lock
       metadata: {}
       target:
@@ -142,6 +141,7 @@ goodnight:
         - lock.kitchen_door_lock
         - lock.workshop
       data: {}
+      continue_on_error: true
     - action: switch.turn_off
       metadata: {}
       target:
@@ -155,17 +155,13 @@ goodnight:
         - switch.wled_lights
         - switch.eric_desk
       data: {}
-    - action: button.press
-      metadata: {}
-      target:
-        entity_id: button.oven_stop
-      data: {}
-      alias: Turn off Oven
+      continue_on_error: true
     - action: cover.close_cover
       metadata: {}
       target:
         entity_id: cover.garage_door
       data: {}
+      continue_on_error: true
     - if:
       - condition: state
         entity_id: person.nicole
@@ -177,6 +173,8 @@ goodnight:
         target:
           entity_id: input_boolean.nicole_asleep
         data: {}
+      continue_on_error: true
+      alias: If Nicole is Home, set to asleep
     - if:
       - condition: state
         entity_id: person.eric
@@ -188,6 +186,39 @@ goodnight:
         target:
           entity_id: input_boolean.eric_asleep
         data: {}
+      continue_on_error: true
+      alias: If Eric is home, set to asleep
+    - if:
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: sensor.oven_oven_job_state
+          state:
+          - ready
+      then:
+      - action: button.press
+        metadata: {}
+        target:
+          entity_id: button.oven_stop
+        data: {}
+        alias: Turn off Oven
+        continue_on_error: true
+      continue_on_error: true
+      alias: If oven is on, turn off
+    continue_on_error: true
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id:
+      - light.porch_light
+      - light.outside_workshop_light
+      - light.outdoor_garage_lights
+    data: {}
   description: ''
   icon: mdi:weather-night
 good_morning:
@@ -207,6 +238,7 @@ good_morning:
       target:
         entity_id:
         - light.pixel_post_light
+      continue_on_error: true
     - if:
       - condition: state
         entity_id: input_boolean.vacation_mode
@@ -257,6 +289,8 @@ good_morning:
             entity_id:
             - switch.eric_desk
             - switch.family_room_media_center_top
+          continue_on_error: true
+      continue_on_error: true
     - if:
       - condition: state
         entity_id: group.anyone_asleep
@@ -329,11 +363,23 @@ goodbye:
       data: {}
       target:
         entity_id: fan.blue_air_fan
-    - action: button.press
-      metadata: {}
-      target:
-        entity_id: button.oven_stop
-      data: {}
+    - if:
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: sensor.oven_oven_job_state
+          state:
+          - ready
+      then:
+      - action: button.press
+        metadata: {}
+        target:
+          entity_id: button.oven_stop
+        data: {}
+        alias: Turn off Oven
+        continue_on_error: true
+      continue_on_error: true
+      alias: If oven is on, turn off
   description: ''
   icon: mdi:run
 watch_tv_downstairs:
@@ -714,10 +760,7 @@ energy_saving_mode:
         data: {}
         target:
           entity_id:
-          - switch.bedroom_air_purifier
-          - switch.nicole_office_air_purifier
           - switch.workshop_battery_wall
-          - switch.eric_office_air_purifier
       - action: light.turn_off
         continue_on_error: true
         metadata: {}
@@ -776,10 +819,7 @@ energy_saving_mode:
             data: {}
             target:
               entity_id:
-              - switch.bedroom_air_purifier
-              - switch.nicole_office_air_purifier
               - switch.workshop_battery_wall
-              - switch.eric_office_air_purifier
       - action: climate.turn_on
         metadata: {}
         data: {}

@@ -61,7 +61,7 @@
                     "type": "gauge",
                     "entity": "sensor.airnow_aqi",
                     "name": "Air Quality Index",
-                    "max": 500,
+                    "max": 800,
                     "segments": [
                       {
                         "from": 0,
@@ -1731,7 +1731,16 @@
                   "type": "sensor",
                   "detail": 2,
                   "entity": "sensor.den_air_quality_pm25",
-                  "hours_to_show": 24
+                  "hours_to_show": 24,
+                  "name": "Den"
+                },
+                {
+                  "graph": "line",
+                  "type": "sensor",
+                  "detail": 2,
+                  "entity": "sensor.living_room_air_quality_pm2_5",
+                  "hours_to_show": 24,
+                  "name": "Living Room"
                 },
                 {
                   "graph": "line",
@@ -1739,23 +1748,15 @@
                   "detail": 2,
                   "entity": "sensor.nicole_office_air_quality_pm2_5",
                   "hours_to_show": 24,
-                  "name": "Nicole Office PM2.5"
+                  "name": "Nicole Office"
                 },
                 {
                   "graph": "line",
                   "type": "sensor",
                   "detail": 2,
-                  "entity": "sensor.workshop_air_quality_pm2_5",
+                  "entity": "sensor.nicole_office_air_quality_voc_index",
                   "hours_to_show": 24,
-                  "name": "Workshop PM2.5"
-                },
-                {
-                  "graph": "line",
-                  "type": "sensor",
-                  "detail": 2,
-                  "entity": "sensor.workshop_air_quality_voc_index",
-                  "hours_to_show": 24,
-                  "name": "Workshop VOC"
+                  "name": "Nicole Office VOC"
                 },
                 {
                   "type": "statistics-graph",
@@ -1947,149 +1948,6 @@
             }
           ],
           "max_columns": 4
-        },
-        {
-          "theme": "Backend-selected",
-          "title": "Cameras",
-          "path": "cameras",
-          "icon": "mdi:camera",
-          "badges": [],
-          "cards": [],
-          "type": "sections",
-          "sections": [
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "custom:advanced-camera-card",
-                  "cameras": [
-                    {
-                      "camera_entity": "camera.doorbell"
-                    }
-                  ],
-                  "status_bar": {
-                    "style": "overlay",
-                    "position": "bottom"
-                  }
-                },
-                {
-                  "type": "custom:advanced-camera-card",
-                  "cameras": [
-                    {
-                      "camera_entity": "camera.garage"
-                    }
-                  ],
-                  "status_bar": {
-                    "style": "overlay",
-                    "position": "bottom"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "custom:advanced-camera-card",
-                  "cameras": [
-                    {
-                      "camera_entity": "camera.workshop"
-                    }
-                  ],
-                  "status_bar": {
-                    "style": "overlay",
-                    "position": "bottom"
-                  }
-                },
-                {
-                  "type": "custom:advanced-camera-card",
-                  "cameras": [
-                    {
-                      "camera_entity": "camera.workshop_duo"
-                    }
-                  ],
-                  "status_bar": {
-                    "style": "overlay",
-                    "position": "bottom"
-                  }
-                },
-                {
-                  "type": "custom:advanced-camera-card",
-                  "cameras": [
-                    {
-                      "camera_entity": "camera.trackmix"
-                    }
-                  ],
-                  "status_bar": {
-                    "style": "overlay",
-                    "position": "bottom"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "custom:advanced-camera-card",
-                  "cameras": [
-                    {
-                      "camera_entity": "camera.front_yard"
-                    }
-                  ],
-                  "status_bar": {
-                    "style": "overlay",
-                    "position": "bottom"
-                  }
-                },
-                {
-                  "type": "custom:advanced-camera-card",
-                  "cameras": [
-                    {
-                      "camera_entity": "camera.back_east"
-                    }
-                  ],
-                  "status_bar": {
-                    "style": "overlay",
-                    "position": "bottom"
-                  }
-                },
-                {
-                  "type": "custom:advanced-camera-card",
-                  "cameras": [
-                    {
-                      "camera_entity": "camera.back_west"
-                    }
-                  ],
-                  "status_bar": {
-                    "style": "overlay",
-                    "position": "bottom"
-                  }
-                }
-              ]
-            }
-          ],
-          "max_columns": 4,
-          "visible": [
-            {
-              "user": "a506d526e61b42d4982d4b388a7b4144"
-            },
-            {
-              "user": "b42b185d4255477db7bb66103bbd89d9"
-            },
-            {
-              "user": "66b26aa37c3c4a3da85a6504307b6eda"
-            },
-            {
-              "user": "4df26c21b64743d683213ba2dfd50dd7"
-            },
-            {
-              "user": "99ad95a5fa354694a345abc0443b6b00"
-            },
-            {
-              "user": "9125054b39ad488f9a8c52a13de70d0e"
-            }
-          ]
         },
         {
           "theme": "Backend-selected",
@@ -2549,7 +2407,7 @@
                           "type": "custom:template-entity-row",
                           "state": "{% if states(config.entity) not in [\"unavailable\", \"undefined\"] %}\n  {{ states(config.entity)|round(0,default = 0)}}%\n{% else %}\n  Offline\n{% endif %}\n",
                           "card_mod": {
-                            "style": ":host {\n  color:\n    {% set level = states(config.entity)|round(0, default = 0) %}\n    {% if level >= 50 %} darkgreen\n    {% elif level >= 40 %} orange\n    {% else %} darkred\n    {% endif %}\n}\n"
+                            "style": ":host {\n  color:\n    {% set level = states(config.entity)|round(0, default = 0) %}\n    {% if level >= 80 %} mediumblue\n    {% elif level >= 50 %} darkgreen\n    {% elif level >= 40 %} orange\n    {% else %} darkred\n    {% endif %}\n}\n"
                           }
                         }
                       }
@@ -3029,7 +2887,6 @@
                   "type": "gauge",
                   "entity": "sensor.airnow_aqi",
                   "name": "Air Quality Index",
-                  "max": 500,
                   "segments": [
                     {
                       "from": 0,
@@ -3056,7 +2913,8 @@
                       "color": "#7e0023"
                     }
                   ],
-                  "needle": true
+                  "needle": true,
+                  "max": 800
                 },
                 {
                   "type": "gauge",
@@ -3216,48 +3074,6 @@
                     "columns": 12,
                     "rows": "auto"
                   }
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.camper_green_giant_soil_moisture",
-                  "segments": [
-                    {
-                      "from": 0,
-                      "color": "red"
-                    },
-                    {
-                      "from": 40,
-                      "color": "green"
-                    },
-                    {
-                      "from": 60,
-                      "color": "red"
-                    }
-                  ],
-                  "max": 100,
-                  "min": 0,
-                  "needle": true
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.driveway_arborvitae_soil_moisture",
-                  "segments": [
-                    {
-                      "from": 0,
-                      "color": "red"
-                    },
-                    {
-                      "from": 40,
-                      "color": "green"
-                    },
-                    {
-                      "from": 60,
-                      "color": "red"
-                    }
-                  ],
-                  "max": 100,
-                  "min": 0,
-                  "needle": true
                 }
               ],
               "column_span": 2
@@ -4433,6 +4249,31 @@
                 },
                 {
                   "type": "gauge",
+                  "entity": "input_number.inland_forest_green_pla",
+                  "max": 1000,
+                  "min": 0,
+                  "needle": true,
+                  "unit": "g",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "#2A7C54"
+                    }
+                  ],
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  },
+                  "visibility": [
+                    {
+                      "condition": "numeric_state",
+                      "above": 0,
+                      "entity": "input_number.inland_forest_green_pla"
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
                   "entity": "input_number.inland_light_blue_pla",
                   "max": 1000,
                   "min": 0,
@@ -4453,6 +4294,31 @@
                       "condition": "numeric_state",
                       "entity": "input_number.inland_light_blue_pla",
                       "above": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "input_number.make_market_blue_pla",
+                  "max": 1000,
+                  "min": 0,
+                  "needle": true,
+                  "unit": "g",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "#005C9C"
+                    }
+                  ],
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  },
+                  "visibility": [
+                    {
+                      "condition": "numeric_state",
+                      "above": 0,
+                      "entity": "input_number.make_market_blue_pla"
                     }
                   ]
                 },
@@ -4553,6 +4419,31 @@
                       "condition": "numeric_state",
                       "entity": "input_number.polymaker_earth_brown_pla",
                       "above": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "input_number.polymaker_sakura_pink_pla",
+                  "max": 1000,
+                  "min": 0,
+                  "needle": true,
+                  "unit": "g",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "#EAADBD  "
+                    }
+                  ],
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  },
+                  "visibility": [
+                    {
+                      "condition": "numeric_state",
+                      "above": 0,
+                      "entity": "input_number.polymaker_sakura_pink_pla"
                     }
                   ]
                 },
@@ -5201,6 +5092,9 @@
                     },
                     {
                       "entity": "automation.lights_turn_off_garage_lights_with_no_motion"
+                    },
+                    {
+                      "entity": "automation.notify_on_package_delivery"
                     }
                   ],
                   "title": "System Toggles",

@@ -24,6 +24,8 @@ exclude:
     - remote.*homepod
     # Backup
     - sensor.backup_*
+    # BirdNET-Go
+    - sensor.birdnet_go_*_confidence
     # Donetick
     - sensor.donetick_chores*
     # Doorbell Entities
@@ -210,6 +212,7 @@ exclude:
     - sensor.stt
     - sensor.suns
     - sensor.switches
+    - sensor.todos
     - sensor.tts
     - sensor.texts
     - sensor.times
@@ -225,7 +228,11 @@ exclude:
     - sensor.issues
     # Misc Entities
     - sensor.allergy_index_tomorrow # IQVIA
+    - sensor.basement_presence_sensor_target_distance
+    - sensor.bedjet_12fa_ambient_temperature
     - sensor.garage_door_dist # OpenGarage
     - sensor.grocy_chores # Grocy
+    - sensor.basement_konnected_6f64eb_esphome_version
+    - sensor.basement_konnected_6f64eb_project_version
     - sensor.last_boot # System Monitor
     - sensor.oven_oven_completion_time # SmartThings

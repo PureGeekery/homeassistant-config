@@ -250,6 +250,36 @@
         "mode": "box",
         "unit_of_measurement": "g",
         "step": 1.0
+      },
+      {
+        "id": "make_market_blue_pla",
+        "min": 0.0,
+        "max": 1000.0,
+        "name": "Make Market Blue PLA",
+        "icon": "mdi:movie-roll",
+        "unit_of_measurement": "g",
+        "mode": "box",
+        "step": 1.0
+      },
+      {
+        "id": "polymaker_sakura_pink_pla",
+        "min": 0.0,
+        "max": 1000.0,
+        "name": "Polymaker Sakura Pink PLA",
+        "icon": "mdi:movie-roll",
+        "mode": "box",
+        "unit_of_measurement": "g",
+        "step": 1.0
+      },
+      {
+        "id": "inland_forest_green_pla",
+        "min": 0.0,
+        "max": 1000.0,
+        "name": "Inland Forest Green PLA",
+        "icon": "mdi:movie-roll",
+        "mode": "box",
+        "unit_of_measurement": "g",
+        "step": 1.0
       }
     ]
   }

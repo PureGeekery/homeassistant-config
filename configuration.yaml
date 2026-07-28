@@ -36,10 +36,12 @@ logger:
     custom_components.simple_plant: error
     homeassistant.components.apple_tv: fatal
     homeassistant.components.automation.climate_workshop_hvac: error
+    homeassistant.components.linkplay.config_flow: critical # we don't even use this anymore
     homeassistant.components.matter: error
     homeassistant.components.openevse: error
     homeassistant.components.python_script: warning
     homeassistant.components.sensor.recorder: error
     homeassistant.components.yamaha_musiccast.coordinator: fatal
+    linkplay: critical
     roborock.data.code_mappings: error
     zigpy.application: error

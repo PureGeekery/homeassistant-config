@@ -5060,9 +5060,6 @@
                       "entity": "automation.notification_dishwasher_finished"
                     },
                     {
-                      "entity": "automation.notification_everyone_left_or_is_sleeping_but_oven_is_on"
-                    },
-                    {
                       "entity": "automation.notification_notify_when_oven_is_done_preheating"
                     },
                     {
@@ -5453,7 +5450,7 @@
               "show_name": false,
               "show_state": true,
               "show_icon": true,
-              "entity": "sensor.living_room_multi_sensor_air_temperature",
+              "entity": "sensor.living_room_air_quality_temperature",
               "color": "red"
             },
             {
@@ -5461,7 +5458,7 @@
               "show_name": false,
               "show_state": true,
               "show_icon": true,
-              "entity": "sensor.living_room_multi_sensor_humidity",
+              "entity": "sensor.living_room_air_quality_humidity",
               "color": "indigo"
             },
             {
@@ -5478,6 +5475,20 @@
               "show_state": true,
               "show_icon": true,
               "entity": "binary_sensor.living_room_motion_sensor_group"
+            },
+            {
+              "type": "entity",
+              "show_name": false,
+              "show_state": true,
+              "show_icon": true,
+              "entity": "sensor.living_room_air_quality_pm2_5"
+            },
+            {
+              "type": "entity",
+              "show_name": false,
+              "show_state": true,
+              "show_icon": true,
+              "entity": "sensor.living_room_air_quality_carbon_dioxide"
             }
           ],
           "cards": [],
@@ -6073,20 +6084,6 @@
               "show_name": false,
               "show_state": true,
               "show_icon": true,
-              "entity": "sensor.nicole_office_air_quality_pm2_5"
-            },
-            {
-              "type": "entity",
-              "show_name": false,
-              "show_state": true,
-              "show_icon": true,
-              "entity": "sensor.nicole_office_air_quality_carbon_dioxide"
-            },
-            {
-              "type": "entity",
-              "show_name": false,
-              "show_state": true,
-              "show_icon": true,
               "entity": "sensor.nicole_office_sensor_illuminance",
               "color": "amber"
             },
@@ -6096,6 +6093,20 @@
               "show_state": true,
               "show_icon": true,
               "entity": "binary_sensor.nicole_office_sensor_home_security_motion_detection"
+            },
+            {
+              "type": "entity",
+              "show_name": false,
+              "show_state": true,
+              "show_icon": true,
+              "entity": "sensor.nicole_office_air_quality_pm2_5"
+            },
+            {
+              "type": "entity",
+              "show_name": false,
+              "show_state": true,
+              "show_icon": true,
+              "entity": "sensor.nicole_office_air_quality_voc_index"
             }
           ],
           "cards": [],
@@ -7763,20 +7774,6 @@
               "show_icon": true,
               "entity": "sensor.workshop_sensor_humidity",
               "color": "indigo"
-            },
-            {
-              "type": "entity",
-              "show_name": false,
-              "show_state": true,
-              "show_icon": true,
-              "entity": "sensor.workshop_air_quality_pm2_5"
-            },
-            {
-              "type": "entity",
-              "show_name": false,
-              "show_state": true,
-              "show_icon": true,
-              "entity": "sensor.workshop_air_quality_voc_index"
             },
             {
               "type": "entity",
