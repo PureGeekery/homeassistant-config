@@ -3094,9 +3094,6 @@
                   },
                   "icon_tap_action": {
                     "action": "more-info"
-                  },
-                  "grid_options": {
-                    "columns": "full"
                   }
                 },
                 {
@@ -3110,14 +3107,16 @@
                   "name": "Fan - South",
                   "features_position": "bottom",
                   "vertical": false,
-                  "grid_options": {
-                    "columns": "full"
-                  },
                   "state_content": [
                     "state",
                     "percentage",
                     "last_updated"
                   ]
+                },
+                {
+                  "type": "custom:purifier-card",
+                  "entity": "fan.family_room_air_filter_fan",
+                  "compact_view": false
                 }
               ]
             },
@@ -3368,6 +3367,10 @@
               "show_state": true,
               "show_icon": true,
               "entity": "binary_sensor.downstairs_smoke_detector_co_alarm_carbon_monoxide_detected"
+            },
+            {
+              "type": "entity",
+              "entity": "sensor.family_room_air_filter_pm_2_5"
             }
           ],
           "cards": [],

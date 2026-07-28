@@ -101,6 +101,12 @@
         entity_id:
         - switch.main_floor_media_center_plug
         - switch.family_room_media_center_top
+  - action: fan.set_preset_mode
+    metadata: {}
+    target:
+      entity_id: fan.family_room_air_filter_fan
+    data:
+      preset_mode: auto
   mode: parallel
   max: 10
 - id: watch_tv_after_sunset
@@ -1399,6 +1405,12 @@
           entity_id:
           - climate.ecobee_thermostat
           - climate.family_room_thermostat
+      - action: fan.set_percentage
+        metadata: {}
+        target:
+          entity_id: fan.family_room_air_filter_fan
+        data:
+          percentage: 0
     - conditions:
       - condition: state
         entity_id: binary_sensor.windows_group
@@ -1415,6 +1427,12 @@
       - action: script.blue_air_fan_control
         metadata: {}
         data: {}
+      - action: fan.set_preset_mode
+        metadata: {}
+        target:
+          entity_id: fan.family_room_air_filter_fan
+        data:
+          preset_mode: auto
   mode: single
 - id: doorbell_snapshot
   alias: Notify on doorbell ring.

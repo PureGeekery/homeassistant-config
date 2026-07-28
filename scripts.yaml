@@ -208,8 +208,8 @@ goodnight:
     continue_on_error: true
   - delay:
       hours: 0
-      minutes: 0
-      seconds: 5
+      minutes: 1
+      seconds: 0
       milliseconds: 0
   - action: light.turn_on
     metadata: {}
@@ -358,11 +358,21 @@ goodbye:
       data: {}
       target:
         entity_id: cover.garage_door
+      continue_on_error: true
     - action: fan.turn_off
       metadata: {}
       data: {}
       target:
-        entity_id: fan.blue_air_fan
+        entity_id:
+        - fan.blue_air_fan
+      continue_on_error: true
+    - action: fan.set_percentage
+      metadata: {}
+      target:
+        entity_id: fan.family_room_air_filter_fan
+      data:
+        percentage: 0
+      continue_on_error: true
     - if:
       - condition: not
         conditions:
@@ -889,6 +899,12 @@ vacation_mode:
             - fan.bedjet_12fa
             - fan.master_bedroom_fan
             - fan.snooz_c0_49_ef_27_a8_62
+        - action: fan.set_percentage
+          metadata: {}
+          target:
+            entity_id: fan.family_room_air_filter_fan
+          data:
+            percentage: 0
     - conditions:
       - condition: state
         entity_id: input_boolean.vacation_mode
@@ -934,7 +950,14 @@ vacation_mode:
         metadata: {}
         data: {}
         target:
-          entity_id: fan.master_bedroom_fan
+          entity_id:
+          - fan.master_bedroom_fan
+      - action: fan.set_preset_mode
+        metadata: {}
+        data:
+          preset_mode: auto
+        target:
+          entity_id: fan.family_room_air_filter_fan
   alias: Vacation Mode
   description: ''
 goodnight_nicole:
@@ -1078,7 +1101,7 @@ set_bedjet:
       - alias: Ambient Temperature is 70 or greater
         condition: template
         value_template: '{{states(''sensor.bedroom_ecobee_sensor_temperature'') |
-          int >= 70}}'
+          int >= 71}}'
       sequence:
       - action: climate.set_hvac_mode
         metadata: {}
@@ -1098,7 +1121,7 @@ set_bedjet:
       - alias: Ambient Temperature is less than 70 and greater than 65
         condition: template
         value_template: '{{states(''sensor.bedroom_ecobee_sensor_temperature'') |
-          int < 70 and states(''sensor.bedroom_ecobee_sensor_temperature'') | int
+          int < 71 and states(''sensor.bedroom_ecobee_sensor_temperature'') | int
           > 66 }}'
       sequence:
       - alias: Turn on BedJet cool

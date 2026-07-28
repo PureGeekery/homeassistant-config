@@ -1720,6 +1720,13 @@
                       "entity": "switch.nicole_office_air_purifier"
                     },
                     {
+                      "entity": "fan.family_room_air_filter_fan",
+                      "name": {
+                        "type": "device"
+                      },
+                      "icon": "mdi:air-filter"
+                    },
+                    {
                       "entity": "fan.blue_air_fan"
                     }
                   ],
@@ -1727,42 +1734,7 @@
                   "title": "Air Purifiers"
                 },
                 {
-                  "graph": "line",
-                  "type": "sensor",
-                  "detail": 2,
-                  "entity": "sensor.den_air_quality_pm25",
-                  "hours_to_show": 24,
-                  "name": "Den"
-                },
-                {
-                  "graph": "line",
-                  "type": "sensor",
-                  "detail": 2,
-                  "entity": "sensor.living_room_air_quality_pm2_5",
-                  "hours_to_show": 24,
-                  "name": "Living Room"
-                },
-                {
-                  "graph": "line",
-                  "type": "sensor",
-                  "detail": 2,
-                  "entity": "sensor.nicole_office_air_quality_pm2_5",
-                  "hours_to_show": 24,
-                  "name": "Nicole Office"
-                },
-                {
-                  "graph": "line",
-                  "type": "sensor",
-                  "detail": 2,
-                  "entity": "sensor.nicole_office_air_quality_voc_index",
-                  "hours_to_show": 24,
-                  "name": "Nicole Office VOC"
-                },
-                {
                   "type": "statistics-graph",
-                  "title": "House Temperatures",
-                  "days_to_show": 3,
-                  "stat_types": "mean",
                   "entities": [
                     {
                       "entity": "sensor.living_room_multi_sensor_air_temperature",
@@ -1808,6 +1780,49 @@
                       "entity": "sensor.orange_bathroom_shower_switch_aht2x_temperature",
                       "name": "Orange Bathroom"
                     }
+                  ],
+                  "title": "House Temperatures",
+                  "days_to_show": 3,
+                  "period": "5minute",
+                  "chart_type": "line",
+                  "stat_types": [
+                    "mean"
+                  ]
+                },
+                {
+                  "type": "statistics-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.den_air_quality_pm25",
+                      "name": {
+                        "type": "area"
+                      }
+                    },
+                    {
+                      "entity": "sensor.family_room_air_filter_pm_2_5",
+                      "name": {
+                        "type": "area"
+                      }
+                    },
+                    {
+                      "entity": "sensor.living_room_air_quality_pm2_5",
+                      "name": {
+                        "type": "area"
+                      }
+                    },
+                    {
+                      "entity": "sensor.nicole_office_air_quality_pm2_5",
+                      "name": {
+                        "type": "area"
+                      }
+                    }
+                  ],
+                  "title": "House Air Quality ",
+                  "days_to_show": 1,
+                  "period": "5minute",
+                  "chart_type": "line",
+                  "stat_types": [
+                    "mean"
                   ]
                 }
               ]
