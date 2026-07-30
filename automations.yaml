@@ -2824,7 +2824,9 @@
         data:
           value: '27'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -3073,7 +3075,9 @@
         data:
           value: '25'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -3322,7 +3326,9 @@
         data:
           value: '22'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -3565,7 +3571,9 @@
         data:
           value: '18'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -3814,7 +3822,9 @@
         data:
           value: '18'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -4063,7 +4073,9 @@
         data:
           value: '11'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -4091,7 +4103,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '8'
+          value: '10'
         target:
           entity_id: number.simple_plant_days_between_waterings_arrowhead_plant
       - alias: Set Begonia
@@ -4312,7 +4324,9 @@
         data:
           value: '12'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -4561,7 +4575,9 @@
         data:
           value: '17'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -4810,7 +4826,9 @@
         data:
           value: '21'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_fertilizations_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -5059,7 +5077,9 @@
         data:
           value: '23'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -5308,7 +5328,9 @@
         data:
           value: '27'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     - conditions:
       - condition: state
         entity_id: sensor.current_month
@@ -5557,7 +5579,9 @@
         data:
           value: '27'
         target:
-          entity_id: number.simple_plant_days_between_waterings_zz_plant
+          entity_id:
+          - number.simple_plant_days_between_waterings_zz_plant
+          - number.simple_plant_days_between_waterings_raven_zz_plant
     continue_on_error: true
   mode: single
 - id: '1758915679413'
@@ -5964,11 +5988,7 @@
   - condition: or
     conditions:
     - condition: time
-      after: '19:00:00'
-    - condition: state
-      entity_id: binary_sensor.pixel_post_light_on
-      state:
-      - 'on'
+      after: '21:00:00'
   actions:
   - action: script.watch_tv_main_floor
     metadata: {}

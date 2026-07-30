@@ -131,6 +131,11 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
+                  "device": "f9b1a3a66977c48a47de1382d3220880",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
                   "device": "16e91893f606adb2a6842370202ea5b9",
                   "show_fertilization": true
                 },
@@ -156,6 +161,16 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
+                  "device": "99549b21461182d5fff6bdce90858e9b",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
+                  "device": "4730b674c2271ef822a82ef0829fd47e",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
                   "device": "78494afd0c459d654c5e9e9664b6adff",
                   "show_fertilization": true
                 },
@@ -176,22 +191,12 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "f702c31d841b9bf23318abbc03b8d239",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
                   "device": "807be6ea5c7ba2e7be1f778f46814b95",
                   "show_fertilization": true
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "f9b1a3a66977c48a47de1382d3220880",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
-                  "device": "4730b674c2271ef822a82ef0829fd47e",
+                  "device": "f702c31d841b9bf23318abbc03b8d239",
                   "show_fertilization": true
                 }
               ],
