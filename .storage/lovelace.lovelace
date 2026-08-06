@@ -4822,6 +4822,31 @@
                       "above": 0
                     }
                   ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "input_number.polymaker_white_asa",
+                  "max": 1000,
+                  "min": 0,
+                  "needle": true,
+                  "unit": "g",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "#EBE7E4"
+                    }
+                  ],
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  },
+                  "visibility": [
+                    {
+                      "condition": "numeric_state",
+                      "above": 0,
+                      "entity": "input_number.polymaker_white_asa"
+                    }
+                  ]
                 }
               ],
               "column_span": 3

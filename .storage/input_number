@@ -27,8 +27,8 @@
         "min": 0.0,
         "max": 1000.0,
         "mode": "box",
-        "step": 1.0,
-        "unit_of_measurement": "grams",
+        "step": 0.01,
+        "unit_of_measurement": "g",
         "name": "eSun Pine Green PLA",
         "icon": "mdi:movie-roll"
       },
@@ -38,8 +38,8 @@
         "max": 1000.0,
         "name": "Overture White PLA",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0,
+        "unit_of_measurement": "g",
+        "step": 0.01,
         "icon": "mdi:movie-roll"
       },
       {
@@ -48,8 +48,8 @@
         "max": 1000.0,
         "name": "Overture Black PLA",
         "mode": "box",
-        "step": 1.0,
-        "unit_of_measurement": "grams",
+        "step": 0.01,
+        "unit_of_measurement": "g",
         "icon": "mdi:movie-roll"
       },
       {
@@ -58,8 +58,8 @@
         "max": 1000.0,
         "name": "Overture Green PLA",
         "mode": "box",
-        "step": 1.0,
-        "unit_of_measurement": "grams",
+        "step": 0.01,
+        "unit_of_measurement": "g",
         "icon": "mdi:movie-roll"
       },
       {
@@ -68,8 +68,8 @@
         "max": 1000.0,
         "name": "Overture Green Blue Silk PLA",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0,
+        "unit_of_measurement": "g",
+        "step": 0.01,
         "icon": "mdi:movie-roll"
       },
       {
@@ -78,8 +78,8 @@
         "max": 1000.0,
         "name": "Bambu Matte Plum PLA",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0,
+        "unit_of_measurement": "g",
+        "step": 0.01,
         "icon": "mdi:movie-roll"
       },
       {
@@ -87,9 +87,9 @@
         "min": 0.0,
         "max": 1000.0,
         "name": "Overture Black PETG",
-        "unit_of_measurement": "grams",
+        "unit_of_measurement": "g",
         "mode": "box",
-        "step": 1.0,
+        "step": 0.01,
         "icon": "mdi:movie-roll"
       },
       {
@@ -99,8 +99,8 @@
         "name": "Polymaker Teal ASA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "sunlu_green_petg",
@@ -109,8 +109,8 @@
         "name": "Sunlu Green PETG",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "bambu_black_abs",
@@ -118,9 +118,9 @@
         "max": 1000.0,
         "name": "Bambu Black ABS",
         "icon": "mdi:movie-roll",
-        "unit_of_measurement": "grams",
+        "unit_of_measurement": "g",
         "mode": "box",
-        "step": 1.0
+        "step": 0.01
       },
       {
         "id": "polymaker_green_petg",
@@ -129,8 +129,8 @@
         "name": "Polymaker Green PETG",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "polymaker_bronze_silk_pla",
@@ -139,8 +139,8 @@
         "name": "Polymaker Bronze Silk PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "step": 1.0,
-        "unit_of_measurement": "grams"
+        "step": 0.01,
+        "unit_of_measurement": "g"
       },
       {
         "id": "inland_light_blue_pla",
@@ -149,8 +149,8 @@
         "name": "Inland Light Blue PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "inland_silk_lime_pla",
@@ -159,8 +159,8 @@
         "name": "Inland Lime Silk PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "polymaker_wine_burgundy_pla",
@@ -169,8 +169,8 @@
         "name": "Polymaker Wine Burgundy PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "step": 1.0,
-        "unit_of_measurement": "grams"
+        "step": 0.01,
+        "unit_of_measurement": "g"
       },
       {
         "id": "inland_clear_petg",
@@ -179,8 +179,8 @@
         "name": "Inland Clear PETG",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "esun_basic_black_petg",
@@ -189,8 +189,8 @@
         "name": "eSun Basic Black PETG",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "bambu_indigo_purple_pla",
@@ -199,8 +199,8 @@
         "name": "Bambu Indigo Purple PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "gram",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "inland_basic_black_pla",
@@ -209,8 +209,8 @@
         "name": "Inland Basic Black PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "inland_basic_white_pla",
@@ -219,8 +219,8 @@
         "name": "Inland Basic White PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "polymaker_earth_brown_pla",
@@ -229,8 +229,8 @@
         "name": "Polymaker Earth Brown PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
-        "unit_of_measurement": "grams",
-        "step": 1.0
+        "unit_of_measurement": "g",
+        "step": 0.01
       },
       {
         "id": "inland_black_asa",
@@ -238,8 +238,9 @@
         "max": 1000.0,
         "name": "Inland Black ASA",
         "icon": "mdi:movie-roll",
-        "step": 1.0,
-        "mode": "box"
+        "step": 0.01,
+        "mode": "box",
+        "unit_of_measurement": "g"
       },
       {
         "id": "esun_solid_grey_petg",
@@ -249,7 +250,7 @@
         "icon": "mdi:movie-roll",
         "mode": "box",
         "unit_of_measurement": "g",
-        "step": 1.0
+        "step": 0.01
       },
       {
         "id": "make_market_blue_pla",
@@ -259,7 +260,7 @@
         "icon": "mdi:movie-roll",
         "unit_of_measurement": "g",
         "mode": "box",
-        "step": 1.0
+        "step": 0.01
       },
       {
         "id": "polymaker_sakura_pink_pla",
@@ -269,7 +270,7 @@
         "icon": "mdi:movie-roll",
         "mode": "box",
         "unit_of_measurement": "g",
-        "step": 1.0
+        "step": 0.01
       },
       {
         "id": "inland_forest_green_pla",
@@ -279,7 +280,17 @@
         "icon": "mdi:movie-roll",
         "mode": "box",
         "unit_of_measurement": "g",
-        "step": 1.0
+        "step": 0.01
+      },
+      {
+        "id": "polymaker_white_asa",
+        "min": 0.0,
+        "max": 1000.0,
+        "name": "Polymaker White ASA",
+        "icon": "mdi:movie-roll",
+        "mode": "box",
+        "unit_of_measurement": "g",
+        "step": 0.01
       }
     ]
   }
