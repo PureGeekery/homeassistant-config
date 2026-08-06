@@ -4336,7 +4336,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '14'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_african_mask_plant
@@ -4345,7 +4345,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '20'
+          value: '30'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_short_leaved_aloe
@@ -4354,7 +4354,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_arrowhead_plant
       - alias: Set Begonia
@@ -4368,20 +4368,20 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '7'
         enabled: false
       - alias: Set Cacti
         action: number.set_value
         metadata: {}
         data:
-          value: '17'
+          value: '30'
         target:
           entity_id: number.simple_plant_days_between_waterings_cactus
       - alias: Set Carnivorous Plants
         action: number.set_value
         metadata: {}
         data:
-          value: '4'
+          value: '3'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_carnivorous_terrarium
@@ -4391,7 +4391,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '3'
+          value: '7'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_corkscrew_croton
@@ -4400,7 +4400,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '7'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_striped_dracaena
@@ -4410,7 +4410,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '6'
+          value: '4'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_colorama_dragon_tree
@@ -4426,36 +4426,43 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '23'
+          value: '17'
         target:
           entity_id: number.simple_plant_days_between_waterings_red_flapjack_plant
       - alias: Set Monstera
         action: number.set_value
         metadata: {}
         data:
-          value: '2'
+          value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_monstera
       - alias: Set Moonstones
         action: number.set_value
         metadata: {}
         data:
-          value: '21'
+          value: '15'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_moonstones
           - number.simple_plant_days_between_waterings_moonstone
+      - alias: Set Nerve Plants
+        action: number.set_value
+        metadata: {}
+        data:
+          value: '2'
+        target:
+          entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
       - alias: Set Parlor Palms
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '6'
         enabled: false
       - alias: Set Peperomia
         action: number.set_value
         metadata: {}
         data:
-          value: '11'
+          value: '10'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_marble_peperomia_1
@@ -4464,7 +4471,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '6'
         enabled: false
       - alias: Set Pothos
         action: number.set_value
@@ -4481,7 +4488,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '2'
+          value: '6'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_prayer_plant
@@ -4490,14 +4497,14 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '6'
+          value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_purple_passion_plant
       - alias: Set Purple Spider Worts
         action: number.set_value
         metadata: {}
         data:
-          value: '4'
+          value: '7'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_purple_heart_spider_wort_1
@@ -4506,14 +4513,14 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '6'
+          value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_rubber_tree
       - alias: Set Sedum
         action: number.set_value
         metadata: {}
         data:
-          value: '16'
+          value: '17'
         target:
           entity_id: number.simple_plant_days_between_waterings_sedum
       - alias: Set Silver Inch Plants
@@ -4527,7 +4534,7 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '17'
+          value: '15'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_black_coral_snake_plant
@@ -4545,35 +4552,28 @@
         action: number.set_value
         metadata: {}
         data:
-          value: '17'
+          value: '14'
         target:
           entity_id: number.simple_plant_days_between_waterings_string_of_pearls
       - alias: Set Umbrella Trees
         action: number.set_value
         metadata: {}
         data:
-          value: '6'
+          value: '5'
         target:
           entity_id: number.simple_plant_days_between_waterings_umbrella_tree
-      - alias: Set Nerve Plants
-        action: number.set_value
-        metadata: {}
-        data:
-          value: '4'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_red_nerve_plant
       - alias: Set Watermelon Ivy
         action: number.set_value
         metadata: {}
         data:
-          value: '9'
+          value: '6'
         target:
           entity_id: number.simple_plant_days_between_waterings_watermelon_ivy
       - alias: Set ZZ Plant
         action: number.set_value
         metadata: {}
         data:
-          value: '17'
+          value: '14'
         target:
           entity_id:
           - number.simple_plant_days_between_waterings_zz_plant
@@ -5739,6 +5739,8 @@
     metadata: {}
     data:
       value: 600
+    target:
+      entity_id: input_number.3d_printer_filter_hours_remaining
   mode: single
 - id: '1780932814229'
   alias: Lighting - Control Living Room Lights with Wall Switch

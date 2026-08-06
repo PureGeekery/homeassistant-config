@@ -78,10 +78,10 @@ def dtePeakSeasonMode():
   if current_hour >= 0 and current_hour < 7:
     logger.info("Extra cool for sleeping.")
     hass.services.call("climate", "set_preset_mode", {"entity_id": thermostat, "preset_mode": "sleep"}, False)
-  elif current_hour >= 7 and current_hour < 15:
+  elif current_hour >= 7 and current_hour < 17:
     logger.info("Prechilling the house")
     hass.services.call("climate", "set_temperature", {"entity_id": thermostat, "temperature": pre_chill_temp}, False)
-  elif current_hour >=15 and current_hour < 19:
+  elif current_hour >=17 and current_hour < 19:
     logger.info("Entering peak hour mode.")
     hass.services.call("climate", "set_temperature", {"entity_id": thermostat, "temperature": peak_hours_temp}, False)
   elif current_hour >=19:
