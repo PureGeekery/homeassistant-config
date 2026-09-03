@@ -126,6 +126,11 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
+                  "device": "2f37a72aa4ee48e8909536b2a49096a8",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
                   "device": "3cde49e73916104fc8ff67758ad2158f",
                   "show_fertilization": true
                 },
@@ -161,6 +166,16 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
+                  "device": "cb7ff402a88e7055191eb3ab911ef0eb",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
+                  "device": "488ff1095a5aeecbd884100bb776880e",
+                  "show_fertilization": true
+                },
+                {
+                  "type": "custom:simple-plant-card",
                   "device": "99549b21461182d5fff6bdce90858e9b",
                   "show_fertilization": true
                 },
@@ -177,11 +192,6 @@
                 {
                   "type": "custom:simple-plant-card",
                   "device": "aaf6728cb55c763f56fb8a8a084abda9",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
-                  "device": "488ff1095a5aeecbd884100bb776880e",
                   "show_fertilization": true
                 },
                 {
@@ -227,11 +237,6 @@
                     "columns": 6,
                     "rows": "auto"
                   },
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
-                  "device": "2f37a72aa4ee48e8909536b2a49096a8",
                   "show_fertilization": true
                 },
                 {
@@ -297,11 +302,6 @@
                 {
                   "type": "custom:simple-plant-card",
                   "device": "ff7c366b440a9553ab095cb12c07b1a8",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
-                  "device": "8f09e3a68a9f15d125bf6581e3a780ec",
                   "show_fertilization": true
                 },
                 {
