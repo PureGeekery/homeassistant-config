@@ -291,6 +291,16 @@
         "mode": "box",
         "unit_of_measurement": "g",
         "step": 0.01
+      },
+      {
+        "id": "insignia_white_pla",
+        "min": 0.0,
+        "max": 1000.0,
+        "name": "Insignia White PLA",
+        "icon": "mdi:movie-roll",
+        "step": 0.01,
+        "unit_of_measurement": "g",
+        "mode": "slider"
       }
     ]
   }

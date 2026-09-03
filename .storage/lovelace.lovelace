@@ -564,7 +564,8 @@
                   "type": "conditional",
                   "conditions": [
                     {
-                      "entity": "binary_sensor.air_quailty_unhealthy",
+                      "condition": "state",
+                      "entity": "binary_sensor.air_quaility_unhealthy",
                       "state": "on"
                     }
                   ],
@@ -1934,6 +1935,7 @@
               "type": "grid",
               "cards": [
                 {
+                  "color": "state",
                   "type": "entities",
                   "entities": [
                     {
@@ -1954,10 +1956,15 @@
                     {
                       "entity": "cover.dining_room_shades_cover",
                       "name": "Dining Room"
+                    },
+                    {
+                      "entity": "cover.patio_roller_shade_1"
+                    },
+                    {
+                      "entity": "cover.patio_shade_2"
                     }
                   ],
-                  "title": "Shades",
-                  "state_color": true
+                  "title": "Shades"
                 }
               ]
             }
@@ -3292,6 +3299,38 @@
                       "entity": "sensor.pirateweather_cloud_coverage"
                     }
                   ]
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.garage_side_light_sensor"
+                    },
+                    {
+                      "entity": "sensor.front_yard_fence_light_sensor"
+                    },
+                    {
+                      "entity": "sensor.front_yard_center_light_sensor"
+                    }
+                  ]
+                },
+                {
+                  "type": "statistics-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.garage_side_light_sensor"
+                    },
+                    "sensor.front_yard_center_light_sensor",
+                    "sensor.front_yard_fence_light_sensor"
+                  ],
+                  "title": "Solar Lux",
+                  "days_to_show": 3,
+                  "period": "hour",
+                  "chart_type": "line",
+                  "stat_types": [
+                    "mean",
+                    "max"
+                  ]
                 }
               ]
             },
@@ -4222,7 +4261,7 @@
                   "segments": [
                     {
                       "from": 0,
-                      "color": "#27272C"
+                      "color": "#373838"
                     }
                   ],
                   "grid_options": {
@@ -4259,6 +4298,31 @@
                       "condition": "numeric_state",
                       "entity": "input_number.inland_basic_white_pla",
                       "above": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "gauge",
+                  "entity": "input_number.insignia_white_pla",
+                  "max": 1000,
+                  "min": 0,
+                  "needle": true,
+                  "unit": "g",
+                  "segments": [
+                    {
+                      "from": 0,
+                      "color": "#E7EDE9"
+                    }
+                  ],
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  },
+                  "visibility": [
+                    {
+                      "condition": "numeric_state",
+                      "above": 0,
+                      "entity": "input_number.insignia_white_pla"
                     }
                   ]
                 },
@@ -4322,7 +4386,7 @@
                   "segments": [
                     {
                       "from": 0,
-                      "color": "#005C9C"
+                      "color": "#1E4E7E"
                     }
                   ],
                   "grid_options": {

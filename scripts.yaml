@@ -26,6 +26,7 @@ wind_down_nicole:
         - light.master_bedroom_closet
         - light.master_bedroom_light
         - light.stairway_dimmer
+        - light.kitchen_table_light
     - action: light.turn_on
       continue_on_error: true
       metadata: {}
@@ -205,6 +206,12 @@ goodnight:
         continue_on_error: true
       continue_on_error: true
       alias: If oven is on, turn off
+    - action: media_player.turn_off
+      metadata: {}
+      target:
+        entity_id: media_player.basement_tv
+      data: {}
+      continue_on_error: true
     continue_on_error: true
   - delay:
       hours: 0
@@ -390,6 +397,12 @@ goodbye:
         continue_on_error: true
       continue_on_error: true
       alias: If oven is on, turn off
+    - action: media_player.turn_off
+      metadata: {}
+      target:
+        entity_id: media_player.basement_tv
+      data: {}
+      continue_on_error: true
   description: ''
   icon: mdi:run
 watch_tv_downstairs:
@@ -1101,7 +1114,7 @@ set_bedjet:
       - alias: Ambient Temperature is 70 or greater
         condition: template
         value_template: '{{states(''sensor.bedroom_ecobee_sensor_temperature'') |
-          int >= 71}}'
+          int >= 70}}'
       sequence:
       - action: climate.set_hvac_mode
         metadata: {}
@@ -1121,7 +1134,7 @@ set_bedjet:
       - alias: Ambient Temperature is less than 70 and greater than 65
         condition: template
         value_template: '{{states(''sensor.bedroom_ecobee_sensor_temperature'') |
-          int < 71 and states(''sensor.bedroom_ecobee_sensor_temperature'') | int
+          int < 70 and states(''sensor.bedroom_ecobee_sensor_temperature'') | int
           > 66 }}'
       sequence:
       - alias: Turn on BedJet cool
