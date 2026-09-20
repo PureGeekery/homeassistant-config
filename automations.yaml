@@ -944,6 +944,8 @@
   actions:
   - data:
       message: Oven is preheated.
+      data:
+        url: /lovelace/chores
     action: notify.notify_nicole_and_eric
   mode: single
 - id: lighting_basement_lights_with_door
@@ -1459,7 +1461,7 @@
           hide-thumbnail: false
           url: /local/doorbell/{{ expand('binary_sensor.doorbell_visitor')[0].last_changed
             | as_timestamp  | timestamp_custom("%Y-%m-%d_%H-%M-%S") }}.jpg
-        url: /lovelace/cameras
+        url: /ccab4aaf_frigate-fa
       message: Someone is at the front door.
     enabled: true
     action: notify.notify_nicole_and_eric
@@ -1484,7 +1486,7 @@
     data:
       message: 'A package has been delivered. '
       data:
-        url: /lovelace/cameras
+        url: /ccab4aaf_frigate-fa
     action: notify.notify_nicole_and_eric
   mode: single
 - id: switch_master_bedroom_fan_direction_with_hvac_mode
@@ -1758,9 +1760,15 @@
   alias: Outdoor Lights - Turn off at Sunrise
   description: ''
   triggers:
-  - trigger: sun
-    event: sunrise
-    offset: 0
+  - trigger: sun.dawn
+    options:
+      offset:
+        days: 0
+        hours: 0
+        minutes: 0
+        seconds: 0
+      offset_type: before
+      type: civil
   conditions:
   - condition: state
     entity_id: binary_sensor.pixel_post_light_on
@@ -1798,9 +1806,15 @@
   alias: Christmas Tree on at Sunset
   description: ''
   triggers:
-  - trigger: sun
-    event: sunset
-    offset: '-1:00'
+  - trigger: sun.dusk
+    options:
+      offset:
+        days: 0
+        hours: 0
+        minutes: 0
+        seconds: 0
+      offset_type: before
+      type: civil
   conditions: []
   actions:
   - action: switch.turn_on
@@ -2651,7 +2665,6 @@
           value: '9'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -2780,8 +2793,7 @@
         metadata: {}
         data:
           value: '28'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -2903,7 +2915,6 @@
           value: '8'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -3025,8 +3036,7 @@
         metadata: {}
         data:
           value: '25'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -3155,7 +3165,6 @@
           value: '6'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -3277,8 +3286,7 @@
         metadata: {}
         data:
           value: '24'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -3401,7 +3409,6 @@
           value: '4'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -3530,8 +3537,7 @@
         metadata: {}
         data:
           value: '21'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -3653,7 +3659,6 @@
           value: '4'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -3782,8 +3787,7 @@
         metadata: {}
         data:
           value: '15'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -3905,7 +3909,6 @@
           value: '6'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -4027,8 +4030,7 @@
         metadata: {}
         data:
           value: '14'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -4157,7 +4159,6 @@
           value: '6'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -4286,8 +4287,7 @@
         metadata: {}
         data:
           value: '15'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -4409,7 +4409,6 @@
           value: '7'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -4538,8 +4537,7 @@
         metadata: {}
         data:
           value: '17'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -4661,7 +4659,6 @@
           value: '7'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -4783,8 +4780,7 @@
         metadata: {}
         data:
           value: '17'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -4913,7 +4909,6 @@
           value: '7'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -5035,8 +5030,7 @@
         metadata: {}
         data:
           value: '24'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -5165,7 +5159,6 @@
           value: '9'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -5287,8 +5280,7 @@
         metadata: {}
         data:
           value: '26'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -5417,7 +5409,6 @@
           value: '9'
         target:
           entity_id:
-          - number.simple_plant_days_between_waterings_corkscrew_croton
           - number.simple_plant_days_between_waterings_croton
       - alias: Set Dracaenas
         action: number.set_value
@@ -5539,8 +5530,7 @@
         metadata: {}
         data:
           value: '28'
-        target:
-          entity_id: number.simple_plant_days_between_waterings_sedum
+        enabled: false
       - alias: Set Silver Inch Plants
         action: number.set_value
         metadata: {}
@@ -5984,6 +5974,8 @@
       data:
         message: '{{ trigger.to_state.attributes.friendly_name }} has an error of
           {{ state_translated(trigger.to_state.entity_id)}}'
+        data:
+          url: /lovelace/chores
   - alias: Notify Eric if Home
     if:
     - condition: state
@@ -6044,6 +6036,8 @@
         title: Roborock Dock needs maintenance.
         message: "'{{ trigger.to_state.attributes.friendly_name }} has an error of\n
           \         {{ state_translated(trigger.to_state.entity_id)}}'"
+        data:
+          url: /lovelace/chores
   - if:
     - condition: state
       entity_id: person.eric
@@ -6056,6 +6050,8 @@
         title: Roborock Dock needs maintenance.
         message: '''{{ trigger.to_state.attributes.friendly_name }} has an error of           {{
           state_translated(trigger.to_state.entity_id)}}'''
+        data:
+          url: /lovelace/chores
   mode: single
 - id: '1788047508793'
   alias: Close outdoor shades at sunrise when AC is on
@@ -6070,14 +6066,27 @@
         seconds: 0
       offset_type: before
   conditions:
-  - condition: climate.is_hvac_mode
-    target:
-      entity_id: climate.ecobee_thermostat
-    options:
-      behavior: any
-      for: 00:00:00
-      hvac_mode:
-      - cool
+  - condition: and
+    conditions:
+    - condition: or
+      conditions:
+      - condition: climate.is_hvac_mode
+        target:
+          entity_id: climate.ecobee_thermostat
+        options:
+          behavior: any
+          for: 00:00:00
+          hvac_mode:
+          - cool
+      - condition: state
+        entity_id: input_boolean.dte_peak_season
+        state:
+        - 'on'
+      alias: If AC is on or it's peak billing...
+    - condition: state
+      entity_id: group.people
+      state:
+      - home
   actions:
   - action: cover.close_cover
     metadata: {}

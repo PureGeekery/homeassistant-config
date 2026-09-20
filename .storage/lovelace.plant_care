@@ -136,11 +136,6 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "f9b1a3a66977c48a47de1382d3220880",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
                   "device": "16e91893f606adb2a6842370202ea5b9",
                   "show_fertilization": true
                 },
@@ -251,11 +246,6 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "786a4ea69be666af6614e5cc09b30d7f",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
                   "device": "16af72ce9e667acf455c4665b195103a",
                   "show_fertilization": true
                 },
@@ -276,11 +266,6 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "d6c4cb340040b0721947f977b035791f",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
                   "device": "cbc4bf9fc745ef03e39ce9d15a66809c",
                   "show_fertilization": true
                 },
@@ -292,11 +277,6 @@
                 {
                   "type": "custom:simple-plant-card",
                   "device": "8d6943355b03cae437713f74e0fdc9d3",
-                  "show_fertilization": true
-                },
-                {
-                  "type": "custom:simple-plant-card",
-                  "device": "59a973f5cd40f7da43d85579275dde12",
                   "show_fertilization": true
                 },
                 {
@@ -326,13 +306,23 @@
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "9ab8ba25a5735bb56963e417e9e191ed",
+                  "device": "d01960c71fd6ed0edd9957d4a30bb926",
                   "show_fertilization": true
                 },
                 {
                   "type": "custom:simple-plant-card",
-                  "device": "d01960c71fd6ed0edd9957d4a30bb926",
-                  "show_fertilization": true
+                  "device": "786a4ea69be666af6614e5cc09b30d7f",
+                  "show_fertilization": false
+                },
+                {
+                  "type": "custom:simple-plant-card",
+                  "device": "d6c4cb340040b0721947f977b035791f",
+                  "show_fertilization": false
+                },
+                {
+                  "type": "custom:simple-plant-card",
+                  "device": "9ab8ba25a5735bb56963e417e9e191ed",
+                  "show_fertilization": false
                 }
               ],
               "column_span": 4
