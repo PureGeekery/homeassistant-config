@@ -95,7 +95,7 @@
       {
         "id": "polymaker_teal_asa",
         "min": 0.0,
-        "max": 1000.0,
+        "max": 2000.0,
         "name": "Polymaker Teal ASA",
         "icon": "mdi:movie-roll",
         "mode": "box",
@@ -205,7 +205,7 @@
       {
         "id": "inland_basic_black_pla",
         "min": 0.0,
-        "max": 1000.0,
+        "max": 3000.0,
         "name": "Inland Basic Black PLA",
         "icon": "mdi:movie-roll",
         "mode": "box",
@@ -285,7 +285,7 @@
       {
         "id": "polymaker_white_asa",
         "min": 0.0,
-        "max": 1000.0,
+        "max": 2000.0,
         "name": "Polymaker White ASA",
         "icon": "mdi:movie-roll",
         "mode": "box",
@@ -300,7 +300,17 @@
         "icon": "mdi:movie-roll",
         "step": 0.01,
         "unit_of_measurement": "g",
-        "mode": "slider"
+        "mode": "box"
+      },
+      {
+        "id": "polymaker_black_asa",
+        "min": 0.0,
+        "max": 1000.0,
+        "name": "Polymaker Black ASA",
+        "icon": "mdi:movie-roll",
+        "mode": "box",
+        "unit_of_measurement": "g",
+        "step": 0.01
       }
     ]
   }
